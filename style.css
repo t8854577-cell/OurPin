@@ -1,0 +1,991 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+ 
+body { 
+    background: #080808; 
+    color: white; 
+    font-family: Arial, Helvetica, sans-serif; 
+    transition: background 0.6s ease, color 0.6s ease; 
+} 
+
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+.page { 
+    min-height: 100vh; 
+    display: none; 
+} 
+ 
+.page.active { 
+    display: flex; 
+} 
+
+
+/* =========================
+   COVER
+========================= */
+
+#cover { 
+    min-height: 100vh; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 30px; 
+} 
+ 
+#cover h1 { 
+    font-size: 72px; 
+    letter-spacing: -4px; 
+    opacity: 0; 
+    transform: translateY(25px); 
+    animation: logoReveal 1.2s ease forwards; 
+} 
+ 
+@keyframes logoReveal { 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+ 
+#enterBtn { 
+    width: auto; 
+    height: auto; 
+    padding: 12px 30px; 
+    border: 1px solid white; 
+    border-radius: 30px; 
+    background: transparent; 
+    color: white; 
+    font-size: 14px; 
+    cursor: pointer; 
+    opacity: 0; 
+    transform: translateY(15px); 
+    animation: buttonReveal 1s ease forwards; 
+    animation-delay: 0.7s; 
+    transition: 0.3s; 
+} 
+ 
+@keyframes buttonReveal { 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+ 
+#enterBtn:hover { 
+    background: white; 
+    color: black; 
+} 
+
+
+/* =========================
+   EXPLORE
+========================= */
+
+#categories { 
+    min-height: 100vh; 
+    width: 100%; 
+} 
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar { 
+    width: 230px; 
+    min-width: 230px; 
+    height: 100vh; 
+    border-right: 1px solid #252525; 
+    padding: 43px 46px; 
+    position: fixed; 
+    left: 0; 
+    top: 0; 
+    display: flex; 
+    flex-direction: column; 
+} 
+ 
+.side-logo { 
+    font-size: 39px; 
+    font-weight: 500; 
+    letter-spacing: -2.5px; 
+    margin-bottom: 100px; 
+} 
+ 
+nav { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 30px; 
+} 
+ 
+.nav-item { 
+    color: #777; 
+    font-size: 16px; 
+    display: flex; 
+    align-items: center; 
+    gap: 17px; 
+    cursor: pointer; 
+} 
+ 
+.nav-item.active { 
+    color: white; 
+} 
+ 
+.side-quote { 
+    margin-top: auto; 
+    color: #777; 
+    font-size: 15px; 
+    line-height: 1.45; 
+} 
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main-content { 
+    margin-left: 230px; 
+    width: calc(100% - 230px); 
+    min-height: 100vh; 
+    padding: 70px 70px; 
+} 
+
+
+/* =========================
+   HEADER
+========================= */
+
+.top-bar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin-bottom: 50px; 
+} 
+ 
+.small-title { 
+    color: #777; 
+    font-size: 12px; 
+    letter-spacing: 5px; 
+    margin-bottom: 27px; 
+} 
+ 
+.top-bar h2 { 
+    font-size: 52px; 
+    font-weight: 400; 
+    letter-spacing: -2.5px; 
+    margin-bottom: 13px; 
+} 
+ 
+.subtitle { 
+    color: #777; 
+    font-size: 16px; 
+} 
+
+
+/* =========================
+   ICONS
+========================= */
+
+.top-icons { 
+    display: flex; 
+    align-items: center; 
+    gap: 25px; 
+    font-size: 27px; 
+} 
+ 
+.search-icon { 
+    width: 48px; 
+    height: 48px; 
+    border-radius: 50%; 
+    background: #181818; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer; 
+} 
+
+
+/* =========================
+   SIX VERTICAL CARDS
+========================= */
+
+.category-row { 
+    width: 100%; 
+    height: 510px; 
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: nowrap; 
+    gap: 20px; 
+} 
+
+
+/* =========================
+   CATEGORY CARD
+========================= */
+
+.category { 
+    flex: 1 1 0; 
+    min-width: 0; 
+    height: 510px; 
+    border: 3px solid transparent; 
+    border-radius: 17px; 
+    overflow: hidden; 
+    position: relative; 
+    cursor: pointer; 
+    color: white; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end; 
+    align-items: flex-start; 
+    padding: 25px; 
+    text-align: left; 
+ 
+    transition: 
+        flex 0.45s ease, 
+        transform 0.35s ease, 
+        border-color 0.35s ease, 
+        opacity 0.35s ease, 
+        filter 0.35s ease; 
+} 
+
+
+/* =========================
+   CATEGORY OVERLAY
+========================= */
+
+.category::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    pointer-events: none;
+}
+
+
+/* =========================
+   CATEGORY TEXT
+========================= */
+
+.category span, 
+.category b { 
+    position: relative; 
+    z-index: 2; 
+} 
+ 
+.category span { 
+    font-size: 20px; 
+    font-weight: 400; 
+    margin-bottom: 18px; 
+} 
+ 
+.category b { 
+    font-size: 28px; 
+    font-weight: 300; 
+} 
+
+
+/* =========================
+   CATEGORY IMAGES
+========================= */
+
+.aesthetic { 
+    background: 
+        url("images/aesthetic/aestheticcover.jpg") 
+        center / cover no-repeat; 
+} 
+ 
+.gaming { 
+    background: 
+        url("images/gaming/gamingcover.jpg") 
+        center / cover no-repeat; 
+} 
+ 
+.art { 
+    background: 
+        linear-gradient( 
+            rgba(0,0,0,0.2), 
+            rgba(0,0,0,0.5) 
+        ), 
+        url("images/art/artcover.jpg") 
+        center / cover no-repeat; 
+} 
+ 
+.fashion { 
+    background: 
+        url("images/fashion/fashioncover.jpg") 
+        center / cover no-repeat; 
+} 
+ 
+.tech { 
+    background: 
+        url("images/tech/techcover.jpg") 
+        center / cover no-repeat; 
+} 
+ 
+.photography { 
+    background: 
+        url("images/photography/photographycover.jpg") 
+        center / cover no-repeat; 
+} 
+
+
+/* =========================
+   CATEGORY HOVER
+========================= */
+
+.category:hover { 
+    flex: 1.15 1 0; 
+    border-color: white; 
+    transform: translateY(-4px); 
+} 
+
+
+/* =========================
+   CATEGORY FADE
+========================= */
+
+.category-row:has(.category:hover) .category:not(:hover) { 
+    filter: brightness(0.55); 
+    opacity: 0.7; 
+} 
+ 
+body.light-mode .category-row:has(.category:hover) .category:not(:hover) {
+    filter: brightness(1.03);
+    opacity: 0.75;
+}
+
+
+/* =========================
+   GALLERIES
+========================= */
+
+#artGallery,
+#fashionGallery,
+#gamingGallery {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.gallery-content { 
+    margin-left: 230px; 
+    width: calc(100% - 230px); 
+    min-height: 100vh; 
+    padding: 70px; 
+} 
+ 
+.gallery-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin-bottom: 45px; 
+} 
+ 
+.gallery-header h2 { 
+    font-size: 52px; 
+    font-weight: 400; 
+    letter-spacing: -2.5px; 
+    margin-bottom: 13px; 
+} 
+
+
+/* =========================
+   GALLERY BACK BUTTONS
+========================= */
+
+#backToExplore,
+#backFromFashion,
+#backFromGaming { 
+    border: 1px solid #333; 
+    background: #181818; 
+    color: white; 
+    padding: 12px 22px; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    font-size: 14px; 
+    transition: 0.3s; 
+} 
+ 
+#backToExplore:hover,
+#backFromFashion:hover,
+#backFromGaming:hover { 
+    background: white; 
+    color: black; 
+} 
+
+
+/* =========================
+   MASONRY
+========================= */
+
+.pin-grid { 
+    columns: 4; 
+    column-gap: 18px; 
+} 
+ 
+.pin { 
+    break-inside: avoid; 
+    margin-bottom: 18px; 
+    overflow: hidden; 
+    border-radius: 16px; 
+    cursor: pointer; 
+} 
+ 
+.pin img { 
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    transition: transform 0.4s ease; 
+} 
+ 
+.pin:hover img { 
+    transform: scale(1.03); 
+} 
+
+
+/* =========================
+   SEARCH OVERLAY
+========================= */
+
+#searchOverlay { 
+    position: fixed; 
+    inset: 0; 
+    z-index: 1000; 
+    background: rgba(8, 8, 8, 0.78); 
+    backdrop-filter: blur(0px); 
+    opacity: 0; 
+    visibility: hidden; 
+    clip-path: circle(0% at 95% 10%); 
+    transition: 
+        clip-path 0.7s cubic-bezier(0.76, 0, 0.24, 1), 
+        opacity 0.35s ease, 
+        backdrop-filter 0.7s ease, 
+        visibility 0s linear 0.7s; 
+} 
+ 
+#searchOverlay.active { 
+    opacity: 1; 
+    visibility: visible; 
+    clip-path: circle(150% at 95% 10%); 
+    backdrop-filter: blur(18px); 
+    transition: 
+        clip-path 0.75s cubic-bezier(0.76, 0, 0.24, 1), 
+        opacity 0.35s ease, 
+        backdrop-filter 0.7s ease, 
+        visibility 0s; 
+} 
+
+
+/* =========================
+   SEARCH CLOSE
+========================= */
+
+#searchClose { 
+    position: absolute; 
+    top: 42px; 
+    right: 55px; 
+    width: 48px; 
+    height: 48px; 
+    border: 1px solid #333; 
+    border-radius: 50%; 
+    background: #151515; 
+    color: white; 
+    font-size: 27px; 
+    font-weight: 200; 
+    cursor: pointer; 
+    opacity: 0; 
+    transform: rotate(-45deg) scale(0.7); 
+    transition: 
+        opacity 0.4s ease 0.35s, 
+        transform 0.5s ease 0.35s, 
+        background 0.3s ease; 
+} 
+ 
+#searchOverlay.active #searchClose { 
+    opacity: 1; 
+    transform: rotate(0deg) scale(1); 
+} 
+ 
+#searchClose:hover { 
+    background: white; 
+    color: black; 
+} 
+
+
+/* =========================
+   SEARCH CONTENT
+========================= */
+
+.search-box { 
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    width: min(850px, 75%); 
+    transform: translate(-50%, -45%); 
+    opacity: 0; 
+    transition: 
+        opacity 0.5s ease 0.3s, 
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s; 
+} 
+ 
+#searchOverlay.active .search-box { 
+    opacity: 1; 
+    transform: translate(-50%, -50%); 
+} 
+
+
+/* =========================
+   SEARCH LABEL
+========================= */
+
+.search-label { 
+    color: #777; 
+    font-size: 12px; 
+    letter-spacing: 5px; 
+    margin-bottom: 22px; 
+} 
+
+
+/* =========================
+   SEARCH INPUT
+========================= */
+
+.search-input-wrap { 
+    display: flex; 
+    align-items: center; 
+    gap: 22px; 
+    border-bottom: 1px solid #444; 
+    padding-bottom: 18px; 
+} 
+ 
+.search-input-wrap > span { 
+    color: #777; 
+    font-size: 32px; 
+} 
+ 
+#searchInput { 
+    width: 100%; 
+    border: none; 
+    outline: none; 
+    background: transparent; 
+    color: white; 
+    font-size: 46px; 
+    font-weight: 300; 
+    letter-spacing: -2px; 
+} 
+ 
+#searchInput::placeholder { 
+    color: #444; 
+} 
+
+
+/* =========================
+   SEARCH SUGGESTIONS
+========================= */
+
+.search-suggestions { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+    margin-top: 28px; 
+} 
+ 
+.search-suggestions button { 
+    border: 1px solid #292929; 
+    background: #111; 
+    color: #777; 
+    padding: 10px 18px; 
+    border-radius: 25px; 
+    font-size: 13px; 
+    cursor: pointer; 
+    transition: 0.3s; 
+} 
+ 
+.search-suggestions button:hover { 
+    background: white; 
+    color: black; 
+    border-color: white; 
+    transform: translateY(-2px); 
+} 
+
+
+/* =========================
+   SEARCH RESULTS
+========================= */
+
+#searchResults { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 14px; 
+    margin-top: 35px; 
+    max-height: 50vh; 
+    overflow-y: auto; 
+} 
+ 
+.search-result { 
+    height: 180px; 
+    border-radius: 14px; 
+    overflow: hidden; 
+    background-size: cover; 
+    background-position: center; 
+    position: relative; 
+    cursor: pointer; 
+    animation: resultAppear 0.35s ease forwards; 
+} 
+ 
+.search-result::after { 
+    content: ""; 
+    position: absolute; 
+    inset: 0; 
+    background: 
+        linear-gradient( 
+            to bottom, 
+            transparent 45%, 
+            rgba(0,0,0,0.8) 
+        ); 
+} 
+ 
+.search-result span { 
+    position: absolute; 
+    z-index: 2; 
+    bottom: 14px; 
+    left: 14px; 
+    font-size: 13px; 
+} 
+ 
+.no-results { 
+    color: #666; 
+    font-size: 15px; 
+    margin-top: 25px; 
+} 
+ 
+@keyframes resultAppear { 
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    } 
+ 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light-mode { 
+    background: #f4f4f1; 
+    color: #111; 
+} 
+ 
+body.light-mode .sidebar { 
+    border-right-color: #d8d8d4; 
+} 
+ 
+body.light-mode .side-logo, 
+body.light-mode .top-bar h2, 
+body.light-mode .gallery-header h2 { 
+    color: #111; 
+} 
+ 
+body.light-mode .nav-item { 
+    color: #888; 
+} 
+ 
+body.light-mode .nav-item.active { 
+    color: #111; 
+} 
+ 
+body.light-mode .side-quote, 
+body.light-mode .subtitle, 
+body.light-mode .small-title { 
+    color: #888; 
+} 
+ 
+body.light-mode .search-icon { 
+    background: #e7e7e3; 
+    color: #111; 
+} 
+ 
+body.light-mode #backToExplore,
+body.light-mode #backFromFashion,
+body.light-mode #backFromGaming { 
+    background: #e7e7e3; 
+    color: #111; 
+    border-color: #d0d0cc; 
+} 
+ 
+body.light-mode #backToExplore:hover,
+body.light-mode #backFromFashion:hover,
+body.light-mode #backFromGaming:hover { 
+    background: #111; 
+    color: white; 
+} 
+ 
+body.light-mode .search-result::after { 
+    background: 
+        linear-gradient( 
+            to bottom, 
+            transparent 45%, 
+            rgba(0,0,0,0.65) 
+        ); 
+} 
+
+
+/* =========================
+   LIGHT MODE CATEGORY BORDER
+========================= */
+
+body.light-mode .category:hover { 
+    border-color: #111; 
+} 
+
+
+/* =========================
+   THEME ICON
+========================= */
+
+#themeToggle { 
+    cursor: pointer; 
+    width: 42px; 
+    height: 42px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 50%; 
+    transition: transform 0.4s ease; 
+} 
+ 
+#themeToggle:hover { 
+    transform: rotate(25deg) scale(1.08); 
+} 
+
+
+/* =========================
+   THEME TRANSITION
+========================= */
+
+#themeTransition { 
+    position: fixed; 
+    z-index: 2000; 
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%; 
+    background: #f4f4f1; 
+    transform: scale(0); 
+    pointer-events: none; 
+} 
+ 
+#themeTransition.animate { 
+    animation: themeExpand 0.75s cubic-bezier(0.76, 0, 0.24, 1); 
+} 
+ 
+@keyframes themeExpand { 
+    0% { 
+        transform: scale(0); 
+        opacity: 1; 
+    } 
+ 
+    100% { 
+        transform: scale(120); 
+        opacity: 1; 
+    } 
+} 
+
+
+/* =========================
+   ART GALLERY REVEAL
+========================= */
+
+#artGallery.art-reveal .gallery-header { 
+    opacity: 0; 
+    animation: 
+        artHeaderReveal 
+        0.7s 
+        cubic-bezier(.22, 1, .36, 1) 
+        forwards; 
+} 
+ 
+#artGallery.art-reveal .pin { 
+    opacity: 0; 
+    transform: translateY(25px) scale(0.96); 
+    animation: 
+        pinPop 
+        0.6s 
+        cubic-bezier(.22, 1, .36, 1) 
+        forwards; 
+} 
+
+
+/* =========================
+   FASHION GALLERY REVEAL
+========================= */
+
+#fashionGallery.fashion-reveal .gallery-header {
+    opacity: 0;
+    animation:
+        artHeaderReveal
+        0.7s
+        cubic-bezier(.22, 1, .36, 1)
+        forwards;
+}
+
+#fashionGallery.fashion-reveal .pin {
+    opacity: 0;
+    transform: translateY(25px) scale(0.96);
+    animation:
+        pinPop
+        0.6s
+        cubic-bezier(.22, 1, .36, 1)
+        forwards;
+}
+
+
+/* =========================
+   GAMING GALLERY REVEAL
+========================= */
+
+#gamingGallery.gaming-reveal .gallery-header {
+    opacity: 0;
+    animation:
+        artHeaderReveal
+        0.7s
+        cubic-bezier(.22, 1, .36, 1)
+        forwards;
+}
+
+#gamingGallery.gaming-reveal .pin {
+    opacity: 0;
+    transform: translateY(25px) scale(0.96);
+    animation:
+        pinPop
+        0.6s
+        cubic-bezier(.22, 1, .36, 1)
+        forwards;
+}
+
+
+/* =========================
+   HEADER ANIMATION
+========================= */
+
+@keyframes artHeaderReveal { 
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    } 
+ 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+
+
+/* =========================
+   PIN POP ANIMATION
+========================= */
+
+@keyframes pinPop { 
+    0% { 
+        opacity: 0; 
+        transform: translateY(25px) scale(0.96); 
+    } 
+ 
+    70% { 
+        opacity: 1; 
+        transform: translateY(-3px) scale(1.01); 
+    } 
+ 
+    100% { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    } 
+} 
+
+
+/* =========================
+   ART PIN STAGGER
+========================= */
+
+#artGallery.art-reveal .pin:nth-child(1) { animation-delay: 0.05s; } 
+#artGallery.art-reveal .pin:nth-child(2) { animation-delay: 0.09s; } 
+#artGallery.art-reveal .pin:nth-child(3) { animation-delay: 0.13s; } 
+#artGallery.art-reveal .pin:nth-child(4) { animation-delay: 0.17s; } 
+#artGallery.art-reveal .pin:nth-child(5) { animation-delay: 0.21s; } 
+#artGallery.art-reveal .pin:nth-child(6) { animation-delay: 0.25s; } 
+#artGallery.art-reveal .pin:nth-child(7) { animation-delay: 0.29s; } 
+#artGallery.art-reveal .pin:nth-child(8) { animation-delay: 0.33s; } 
+#artGallery.art-reveal .pin:nth-child(9) { animation-delay: 0.37s; } 
+#artGallery.art-reveal .pin:nth-child(10) { animation-delay: 0.41s; } 
+#artGallery.art-reveal .pin:nth-child(11) { animation-delay: 0.45s; } 
+#artGallery.art-reveal .pin:nth-child(12) { animation-delay: 0.49s; } 
+#artGallery.art-reveal .pin:nth-child(13) { animation-delay: 0.53s; } 
+#artGallery.art-reveal .pin:nth-child(14) { animation-delay: 0.57s; } 
+#artGallery.art-reveal .pin:nth-child(15) { animation-delay: 0.61s; } 
+#artGallery.art-reveal .pin:nth-child(16) { animation-delay: 0.65s; }
+
+
+/* =========================
+   FASHION PIN STAGGER
+========================= */
+
+#fashionGallery.fashion-reveal .pin:nth-child(1) { animation-delay: 0.05s; }
+#fashionGallery.fashion-reveal .pin:nth-child(2) { animation-delay: 0.09s; }
+#fashionGallery.fashion-reveal .pin:nth-child(3) { animation-delay: 0.13s; }
+#fashionGallery.fashion-reveal .pin:nth-child(4) { animation-delay: 0.17s; }
+#fashionGallery.fashion-reveal .pin:nth-child(5) { animation-delay: 0.21s; }
+#fashionGallery.fashion-reveal .pin:nth-child(6) { animation-delay: 0.25s; }
+#fashionGallery.fashion-reveal .pin:nth-child(7) { animation-delay: 0.29s; }
+#fashionGallery.fashion-reveal .pin:nth-child(8) { animation-delay: 0.33s; }
+#fashionGallery.fashion-reveal .pin:nth-child(9) { animation-delay: 0.37s; }
+#fashionGallery.fashion-reveal .pin:nth-child(10) { animation-delay: 0.41s; }
+#fashionGallery.fashion-reveal .pin:nth-child(11) { animation-delay: 0.45s; }
+#fashionGallery.fashion-reveal .pin:nth-child(12) { animation-delay: 0.49s; }
+#fashionGallery.fashion-reveal .pin:nth-child(13) { animation-delay: 0.53s; }
+#fashionGallery.fashion-reveal .pin:nth-child(14) { animation-delay: 0.57s; }
+#fashionGallery.fashion-reveal .pin:nth-child(15) { animation-delay: 0.61s; }
+#fashionGallery.fashion-reveal .pin:nth-child(16) { animation-delay: 0.65s; }
+#fashionGallery.fashion-reveal .pin:nth-child(17) { animation-delay: 0.69s; }
+#fashionGallery.fashion-reveal .pin:nth-child(18) { animation-delay: 0.73s; }
+#fashionGallery.fashion-reveal .pin:nth-child(19) { animation-delay: 0.77s; }
+
+
+/* =========================
+   GAMING PIN STAGGER
+========================= */
+
+#gamingGallery.gaming-reveal .pin:nth-child(1) { animation-delay: 0.05s; }
+#gamingGallery.gaming-reveal .pin:nth-child(2) { animation-delay: 0.09s; }
+#gamingGallery.gaming-reveal .pin:nth-child(3) { animation-delay: 0.13s; }
+#gamingGallery.gaming-reveal .pin:nth-child(4) { animation-delay: 0.17s; }
+#gamingGallery.gaming-reveal .pin:nth-child(5) { animation-delay: 0.21s; }
+#gamingGallery.gaming-reveal .pin:nth-child(6) { animation-delay: 0.25s; }
+#gamingGallery.gaming-reveal .pin:nth-child(7) { animation-delay: 0.29s; }
+#gamingGallery.gaming-reveal .pin:nth-child(8) { animation-delay: 0.33s; }
+#gamingGallery.gaming-reveal .pin:nth-child(9) { animation-delay: 0.37s; }
+#gamingGallery.gaming-reveal .pin:nth-child(10) { animation-delay: 0.41s; }
+#gamingGallery.gaming-reveal .pin:nth-child(11) { animation-delay: 0.45s; }
+#gamingGallery.gaming-reveal .pin:nth-child(12) { animation-delay: 0.49s; }
+#gamingGallery.gaming-reveal .pin:nth-child(13) { animation-delay: 0.53s; }
+#gamingGallery.gaming-reveal .pin:nth-child(14) { animation-delay: 0.57s; }
+#gamingGallery.gaming-reveal .pin:nth-child(15) { animation-delay: 0.61s; }
+#gamingGallery.gaming-reveal .pin:nth-child(16) { animation-delay: 0.65s; }
+#gamingGallery.gaming-reveal .pin:nth-child(17) { animation-delay: 0.69s; }
+#gamingGallery.gaming-reveal .pin:nth-child(18) { animation-delay: 0.73s; }
+#gamingGallery.gaming-reveal .pin:nth-child(19) { animation-delay: 0.77s; }
+#gamingGallery.gaming-reveal .pin:nth-child(20) { animation-delay: 0.81s; }
+#gamingGallery.gaming-reveal .pin:nth-child(21) { animation-delay: 0.85s; }
+#gamingGallery.gaming-reveal .pin:nth-child(22) { animation-delay: 0.89s; }
+#gamingGallery.gaming-reveal .pin:nth-child(23) { animation-delay: 0.93s; }
+#gamingGallery.gaming-reveal .pin:nth-child(24) { animation-delay: 0.97s; }
+#gamingGallery.gaming-reveal .pin:nth-child(25) { animation-delay: 1.01s; }
+#gamingGallery.gaming-reveal .pin:nth-child(26) { animation-delay: 1.05s; }
+#gamingGallery.gaming-reveal .pin:nth-child(27) { animation-delay: 1.09s; }
