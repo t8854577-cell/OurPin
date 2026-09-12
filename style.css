@@ -624,21 +624,56 @@ body.light-mode .category-row:has(.category:hover) .category:not(:hover) {
     margin-top: 35px; 
     max-height: 50vh; 
     overflow-y: auto; 
-    padding-right: 8px; /* Adds space so the scrollbar doesn't cover images */
 } 
-
-/* Styles the scrollbar to blend in with your dark theme */
-#searchResults::-webkit-scrollbar {
-    width: 6px;
-}
-#searchResults::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 4px;
-}
-#searchResults::-webkit-scrollbar-track {
-    background: transparent;
-}
-
+ 
+.search-result { 
+    height: 180px; 
+    border-radius: 14px; 
+    overflow: hidden; 
+    background-size: cover; 
+    background-position: center; 
+    position: relative; 
+    cursor: pointer; 
+    animation: resultAppear 0.35s ease forwards; 
+} 
+ 
+.search-result::after { 
+    content: ""; 
+    position: absolute; 
+    inset: 0; 
+    background: 
+        linear-gradient( 
+            to bottom, 
+            transparent 45%, 
+            rgba(0,0,0,0.8) 
+        ); 
+} 
+ 
+.search-result span { 
+    position: absolute; 
+    z-index: 2; 
+    bottom: 14px; 
+    left: 14px; 
+    font-size: 13px; 
+} 
+ 
+.no-results { 
+    color: #666; 
+    font-size: 15px; 
+    margin-top: 25px; 
+} 
+ 
+@keyframes resultAppear { 
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    } 
+ 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
 
 /* =========================
    LIGHT MODE
