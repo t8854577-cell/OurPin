@@ -278,7 +278,7 @@ const artImages = [
 artImages.forEach(i => {
 
     pins.push({
-        image: `images/art/a${i}.jpg`,
+        image: `Images/art/a${i}.jpg`,
         title: `Art ${i}`,
         tags: ["art"]
     });
@@ -290,7 +290,7 @@ artImages.forEach(i => {
 
 for (let i = 1; i <= 21; i++) {
     pins.push({
-        image: `images/fashion/b${i}.jpg`,
+        image: `Images/fashion/b${i}.jpg`,
         title: `Fashion ${i}`,
         tags: ["fashion"]
     });
@@ -302,7 +302,7 @@ for (let i = 1; i <= 21; i++) {
 for (let i = 1; i <= 27; i++) {
 
     pins.push({
-        image: `images/gaming/c${i}.jpg`,
+        image: `Images/gaming/c${i}.jpg`,
         title: `Gaming ${i}`,
         tags: ["gaming"]
     });
