@@ -520,6 +520,12 @@ pins.push({
 });
 
 pins.push({
+    image: "images/art/a46.jpg",
+    title: "Art 46",
+    tags: ["art", "collection"]
+});
+
+pins.push({
     image: "images/fashion/b1.jpg",
     title: "Fashion 1",
     tags: ["fashion", "collection"]
@@ -1693,6 +1699,10 @@ function openSearchImageDirectly(imageSrc, title) {
 
     document.body.style.overflow = "hidden";
 }
+
+
+
+
 
 
 
