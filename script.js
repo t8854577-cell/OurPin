@@ -885,6 +885,12 @@ pins.push({
     tags: ["photography", "collection"]
 });
 
+pins.push({
+    image: "images/photography/f6.jpg",
+    title: "Photography 6",
+    tags: ["photography", "collection"]
+});
+
 /* OUR TOOL SEARCH DATABASE END */
 
 
@@ -1687,6 +1693,10 @@ function openSearchImageDirectly(imageSrc, title) {
 
     document.body.style.overflow = "hidden";
 }
+
+
+
+
 
 
 
