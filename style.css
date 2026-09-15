@@ -295,13 +295,13 @@ nav {
 
 .aesthetic { 
     background: 
-        url("Images/aesthetic/aestheticcover.jpg") 
+        url("images/aesthetic/aestheticcover.jpg") 
         center / cover no-repeat; 
 } 
  
 .gaming { 
     background: 
-        url("Images/gaming/gamingcover.jpg") 
+        url("images/gaming/gamingcover.jpg") 
         center / cover no-repeat; 
 } 
  
@@ -311,25 +311,25 @@ nav {
             rgba(0,0,0,0.2), 
             rgba(0,0,0,0.5) 
         ), 
-        url("Images/art/artcover.jpg") 
+        url("images/art/artcover.jpg") 
         center / cover no-repeat; 
 } 
  
 .fashion { 
     background: 
-        url("Images/fashion/fashioncover.jpg") 
+        url("images/fashion/fashioncover.jpg") 
         center / cover no-repeat; 
 } 
  
 .tech { 
     background: 
-        url("Images/tech/techcover.jpg") 
+        url("images/tech/techcover.jpg") 
         center / cover no-repeat; 
 } 
  
 .photography { 
     background: 
-        url("Images/photography/photographycover.jpg") 
+        url("images/photography/photographycover.jpg") 
         center / cover no-repeat; 
 } 
 
@@ -1634,6 +1634,7 @@ body.light-mode .viewer-arrow:hover {
 
 
 
+
 /* OUR TOOL EXACT EXISTING PIN ANIMATION START */
 
 
@@ -1929,6 +1930,7 @@ body.light-mode .viewer-arrow:hover {
 
 
 /* OUR TOOL EXACT EXISTING PIN ANIMATION END */
+
 
 
 
