@@ -502,6 +502,12 @@ pins.push({
 });
 
 pins.push({
+    image: "images/art/a42.jpg",
+    title: "Art 42",
+    tags: ["art", "collection"]
+});
+
+pins.push({
     image: "images/art/a43.jpg",
     title: "Art 43",
     tags: ["art", "collection"]
@@ -1717,6 +1723,10 @@ function openSearchImageDirectly(imageSrc, title) {
 
     document.body.style.overflow = "hidden";
 }
+
+
+
+
 
 
 
