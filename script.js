@@ -526,6 +526,24 @@ pins.push({
 });
 
 pins.push({
+    image: "images/art/a47.jpg",
+    title: "Art 47",
+    tags: ["art", "collection"]
+});
+
+pins.push({
+    image: "images/art/a48.jpg",
+    title: "Art 48",
+    tags: ["art", "collection"]
+});
+
+pins.push({
+    image: "images/art/a49.jpg",
+    title: "Art 49",
+    tags: ["art", "collection"]
+});
+
+pins.push({
     image: "images/fashion/b1.jpg",
     title: "Fashion 1",
     tags: ["fashion", "collection"]
@@ -1699,6 +1717,10 @@ function openSearchImageDirectly(imageSrc, title) {
 
     document.body.style.overflow = "hidden";
 }
+
+
+
+
 
 
 
