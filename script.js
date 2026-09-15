@@ -874,20 +874,20 @@ pins.push({
 });
 
 pins.push({
+    image: "images/photography/f2.jpg",
+    title: "Photography 2",
+    tags: ["photography", "collection"]
+});
+
+pins.push({
+    image: "images/photography/f3.jpg",
+    title: "Photography 3",
+    tags: ["photography", "collection"]
+});
+
+pins.push({
     image: "images/photography/f4.jpg",
     title: "Photography 4",
-    tags: ["photography", "collection"]
-});
-
-pins.push({
-    image: "images/photography/f5.jpg",
-    title: "Photography 5",
-    tags: ["photography", "collection"]
-});
-
-pins.push({
-    image: "images/photography/f6.jpg",
-    title: "Photography 6",
     tags: ["photography", "collection"]
 });
 
@@ -1693,6 +1693,10 @@ function openSearchImageDirectly(imageSrc, title) {
 
     document.body.style.overflow = "hidden";
 }
+
+
+
+
 
 
 
