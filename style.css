@@ -295,13 +295,13 @@ nav {
 
 .aesthetic { 
     background: 
-        url("Images/aesthetic/aestheticcover.jpg") 
+        url("images/aesthetic/aestheticcover.jpg") 
         center / cover no-repeat; 
 } 
  
 .gaming { 
     background: 
-        url("Images/gaming/gamingcover.jpg") 
+        url("images/gaming/gamingcover.jpg") 
         center / cover no-repeat; 
 } 
  
@@ -311,25 +311,25 @@ nav {
             rgba(0,0,0,0.2), 
             rgba(0,0,0,0.5) 
         ), 
-        url("Images/art/artcover.jpg") 
+        url("images/art/artcover.jpg") 
         center / cover no-repeat; 
 } 
  
 .fashion { 
     background: 
-        url("Images/fashion/fashioncover.jpg") 
+        url("images/fashion/fashioncover.jpg") 
         center / cover no-repeat; 
 } 
  
 .tech { 
     background: 
-        url("Images/tech/techcover.jpg") 
+        url("images/tech/techcover.jpg") 
         center / cover no-repeat; 
 } 
  
 .photography { 
     background: 
-        url("Images/photography/photographycover.jpg") 
+        url("images/photography/photographycover.jpg") 
         center / cover no-repeat; 
 } 
 
@@ -366,7 +366,10 @@ body.light-mode .category-row:has(.category:hover) .category:not(:hover) {
 
 #artGallery,
 #fashionGallery,
-#gamingGallery {
+#gamingGallery,
+#aestheticGallery,
+#techGallery,
+#photographyGallery {
     min-height: 100vh;
     width: 100%;
 }
@@ -399,7 +402,10 @@ body.light-mode .category-row:has(.category:hover) .category:not(:hover) {
 
 #backToExplore,
 #backFromFashion,
-#backFromGaming { 
+#backFromGaming,
+#backFromAesthetic,
+#backFromTech,
+#backFromPhotography { 
     border: 1px solid #333; 
     background: #181818; 
     color: white; 
@@ -412,7 +418,10 @@ body.light-mode .category-row:has(.category:hover) .category:not(:hover) {
  
 #backToExplore:hover,
 #backFromFashion:hover,
-#backFromGaming:hover { 
+#backFromGaming:hover,
+#backFromAesthetic:hover,
+#backFromTech:hover,
+#backFromPhotography:hover { 
     background: white; 
     color: black; 
 } 
@@ -675,6 +684,7 @@ body.light-mode .category-row:has(.category:hover) .category:not(:hover) {
     } 
 } 
 
+
 /* =========================
    LIGHT MODE
 ========================= */
@@ -723,7 +733,10 @@ body.light-mode #backFromGaming {
  
 body.light-mode #backToExplore:hover,
 body.light-mode #backFromFashion:hover,
-body.light-mode #backFromGaming:hover { 
+body.light-mode #backFromGaming:hover,
+body.light-mode #backFromAesthetic:hover,
+body.light-mode #backFromTech:hover,
+body.light-mode #backFromPhotography:hover { 
     background: #111; 
     color: white; 
 } 
@@ -988,3 +1001,934 @@ body.light-mode .category:hover {
 #gamingGallery.gaming-reveal .pin:nth-child(25) { animation-delay: 1.01s; }
 #gamingGallery.gaming-reveal .pin:nth-child(26) { animation-delay: 1.05s; }
 #gamingGallery.gaming-reveal .pin:nth-child(27) { animation-delay: 1.09s; }
+
+/* =========================================================
+   OURPIN IMAGE VIEWER
+========================================================= */
+
+#imageViewer {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+
+    background: rgba(5, 5, 5, 0.96);
+
+    opacity: 0;
+    visibility: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+#imageViewer.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================================================
+   MAIN VIEWER CONTAINER
+========================================================= */
+
+.viewer-wrap {
+    width: min(1380px, 94vw);
+    height: min(780px, 88vh);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(320px, 0.75fr);
+
+    background: #0a0a0a;
+
+    border: 1px solid #262626;
+    border-radius: 4px;
+
+    overflow: hidden;
+
+    transform: scale(0.94) translateY(20px);
+    opacity: 0;
+
+    transition:
+        transform 0.55s cubic-bezier(.22,1,.36,1),
+        opacity 0.4s ease;
+}
+
+#imageViewer.active .viewer-wrap {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+
+/* =========================================================
+   IMAGE SIDE
+========================================================= */
+
+.viewer-image-area {
+    position: relative;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #050505;
+
+    overflow: hidden;
+}
+
+#viewerImage {
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    display: block;
+
+    opacity: 0;
+
+    transform: scale(0.97);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.45s cubic-bezier(.22,1,.36,1);
+}
+
+#viewerImage.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   INFORMATION PANEL
+========================================================= */
+
+.viewer-info {
+    border-left: 1px solid #242424;
+
+    padding: 58px 46px;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+/* category */
+
+.viewer-category {
+    color: #777;
+
+    font-size: 11px;
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+}
+
+
+/* title */
+
+#viewerTitle {
+    font-size: clamp(34px, 4vw, 56px);
+
+    font-weight: 400;
+
+    letter-spacing: -2.5px;
+
+    color: white;
+
+    margin: 0;
+}
+
+
+/* line */
+
+.viewer-line {
+    width: 60px;
+    height: 1px;
+
+    background: #555;
+
+    margin: 25px 0;
+}
+
+
+/* description */
+
+#viewerDescription {
+    color: #888;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    max-width: 360px;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.viewer-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+.viewer-tags span {
+    border: 1px solid #333;
+
+    border-radius: 30px;
+
+    padding: 8px 13px;
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.viewer-actions {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+.viewer-actions button {
+    border: 1px solid #333;
+
+    background: transparent;
+
+    color: white;
+
+    padding: 11px 17px;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.viewer-actions button:hover {
+    background: white;
+    color: black;
+    border-color: white;
+
+    transform: translateY(-2px);
+}
+
+.viewer-actions button.saved {
+    background: white;
+    color: black;
+    border-color: white;
+}
+
+.viewer-actions span {
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   BOTTOM NAVIGATION
+========================================================= */
+
+.viewer-navigation {
+    margin-top: auto;
+
+    padding-top: 28px;
+
+    border-top: 1px solid #222;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.viewer-navigation button {
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+
+    font-size: 13px;
+
+    padding: 5px 0;
+
+    cursor: pointer;
+
+    transition: color 0.25s ease;
+}
+
+.viewer-navigation button:hover {
+    color: white;
+}
+
+#viewerNextBottom {
+    text-align: right;
+}
+
+#viewerCounter {
+    color: #555;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+#viewerClose {
+    position: absolute;
+
+    top: 28px;
+    right: 35px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    border: 1px solid #333;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: 200;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    opacity: 0;
+
+    transform: rotate(-45deg) scale(0.7);
+
+    transition:
+        opacity 0.35s ease 0.15s,
+        transform 0.45s ease 0.15s,
+        background 0.25s ease;
+}
+
+#imageViewer.active #viewerClose {
+    opacity: 1;
+
+    transform: rotate(0deg) scale(1);
+}
+
+#viewerClose:hover {
+    background: white;
+    color: black;
+}
+
+
+/* =========================================================
+   SIDE ARROWS
+========================================================= */
+
+.viewer-arrow {
+    position: fixed;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    border: 1px solid #333;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 23px;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.viewer-arrow:hover {
+    background: white;
+    color: black;
+}
+
+.viewer-prev {
+    left: 22px;
+}
+
+.viewer-next {
+    right: 22px;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+body.light-mode #imageViewer {
+    background: rgba(244, 244, 241, 0.96);
+}
+
+body.light-mode .viewer-wrap {
+    background: #f7f7f4;
+
+    border-color: #d8d8d4;
+}
+
+body.light-mode .viewer-image-area {
+    background: #ededeb;
+}
+
+body.light-mode .viewer-info {
+    border-left-color: #d8d8d4;
+}
+
+body.light-mode #viewerTitle {
+    color: #111;
+}
+
+body.light-mode #viewerDescription {
+    color: #777;
+}
+
+body.light-mode .viewer-line {
+    background: #bbb;
+}
+
+body.light-mode .viewer-tags span {
+    border-color: #ccc;
+    color: #666;
+}
+
+body.light-mode .viewer-actions button {
+    color: #111;
+    border-color: #ccc;
+}
+
+body.light-mode .viewer-actions button:hover,
+body.light-mode .viewer-actions button.saved {
+    background: #111;
+    color: white;
+    border-color: #111;
+}
+
+body.light-mode .viewer-navigation {
+    border-top-color: #ddd;
+}
+
+body.light-mode .viewer-navigation button {
+    color: #777;
+}
+
+body.light-mode .viewer-navigation button:hover {
+    color: #111;
+}
+
+body.light-mode #viewerClose,
+body.light-mode .viewer-arrow {
+    background: #e7e7e3;
+    color: #111;
+    border-color: #d0d0cc;
+}
+
+body.light-mode #viewerClose:hover,
+body.light-mode .viewer-arrow:hover {
+    background: #111;
+    color: white;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    #imageViewer {
+        padding: 20px;
+    }
+
+    .viewer-wrap {
+        width: 100%;
+        height: auto;
+        max-height: 92vh;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow-y: auto;
+    }
+
+    .viewer-image-area {
+        min-height: 48vh;
+
+        height: 52vh;
+    }
+
+    #viewerImage {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .viewer-info {
+        border-left: none;
+        border-top: 1px solid #242424;
+
+        padding: 30px;
+    }
+
+    .viewer-arrow {
+        display: none;
+    }
+
+    #viewerClose {
+        top: 15px;
+        right: 15px;
+    }
+}
+
+
+
+
+
+/* OUR TOOL POPUP ANIMATION START */
+
+@keyframes ourToolPinPopup {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(28px)
+            scale(0.92);
+        filter: blur(5px);
+    }
+
+    55% {
+        opacity: 1;
+        transform:
+            translateY(-5px)
+            scale(1.015);
+        filter: blur(0);
+    }
+
+    75% {
+        transform:
+            translateY(2px)
+            scale(0.995);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+        filter: blur(0);
+    }
+
+}
+
+
+.ourToolPinPopup {
+
+    opacity: 0;
+
+    animation-name:
+        ourToolPinPopup;
+
+    animation-duration:
+        0.62s;
+
+    animation-timing-function:
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+    animation-fill-mode:
+        forwards;
+
+    will-change:
+        transform,
+        opacity,
+        filter;
+
+}
+
+
+/* OUR TOOL POPUP ANIMATION END */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* OUR TOOL EXACT EXISTING PIN ANIMATION START */
+
+
+/* AESTHETIC */
+
+#aestheticGallery.aesthetic-reveal .gallery-header {
+
+    opacity: 0;
+
+    animation:
+        artHeaderReveal
+        0.7s
+        cubic-bezier(.22, 1, .36, 1)
+        forwards;
+}
+
+
+#aestheticGallery.aesthetic-reveal .pin {
+
+    opacity: 0;
+
+    transform:
+        translateY(25px)
+        scale(0.96);
+
+    animation:
+        pinPop
+        0.6s
+        cubic-bezier(.22, 1, .36, 1)
+        forwards;
+}
+
+
+/* TECH */
+
+#techGallery.tech-reveal .gallery-header {
+
+    opacity: 0;
+
+    animation:
+        artHeaderReveal
+        0.7s
+        cubic-bezier(.22, 1, .36, 1)
+        forwards;
+}
+
+
+#techGallery.tech-reveal .pin {
+
+    opacity: 0;
+
+    transform:
+        translateY(25px)
+        scale(0.96);
+
+    animation:
+        pinPop
+        0.6s
+        cubic-bezier(.22, 1, .36, 1)
+        forwards;
+}
+
+
+/* PHOTOGRAPHY */
+
+#photographyGallery.photography-reveal .gallery-header {
+
+    opacity: 0;
+
+    animation:
+        artHeaderReveal
+        0.7s
+        cubic-bezier(.22, 1, .36, 1)
+        forwards;
+}
+
+
+#photographyGallery.photography-reveal .pin {
+
+    opacity: 0;
+
+    transform:
+        translateY(25px)
+        scale(0.96);
+
+    animation:
+        pinPop
+        0.6s
+        cubic-bezier(.22, 1, .36, 1)
+        forwards;
+}
+
+
+/* AESTHETIC STAGGER */
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(2) {
+    animation-delay: 0.09s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(3) {
+    animation-delay: 0.13s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(4) {
+    animation-delay: 0.17s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(5) {
+    animation-delay: 0.21s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(6) {
+    animation-delay: 0.25s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(7) {
+    animation-delay: 0.29s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(8) {
+    animation-delay: 0.33s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(9) {
+    animation-delay: 0.37s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(10) {
+    animation-delay: 0.41s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(11) {
+    animation-delay: 0.45s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(12) {
+    animation-delay: 0.49s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(13) {
+    animation-delay: 0.53s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(14) {
+    animation-delay: 0.57s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(15) {
+    animation-delay: 0.61s;
+}
+
+#aestheticGallery.aesthetic-reveal .pin:nth-child(16) {
+    animation-delay: 0.65s;
+}
+
+
+/* TECH STAGGER */
+
+#techGallery.tech-reveal .pin:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(2) {
+    animation-delay: 0.09s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(3) {
+    animation-delay: 0.13s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(4) {
+    animation-delay: 0.17s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(5) {
+    animation-delay: 0.21s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(6) {
+    animation-delay: 0.25s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(7) {
+    animation-delay: 0.29s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(8) {
+    animation-delay: 0.33s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(9) {
+    animation-delay: 0.37s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(10) {
+    animation-delay: 0.41s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(11) {
+    animation-delay: 0.45s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(12) {
+    animation-delay: 0.49s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(13) {
+    animation-delay: 0.53s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(14) {
+    animation-delay: 0.57s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(15) {
+    animation-delay: 0.61s;
+}
+
+#techGallery.tech-reveal .pin:nth-child(16) {
+    animation-delay: 0.65s;
+}
+
+
+/* PHOTOGRAPHY STAGGER */
+
+#photographyGallery.photography-reveal .pin:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(2) {
+    animation-delay: 0.09s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(3) {
+    animation-delay: 0.13s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(4) {
+    animation-delay: 0.17s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(5) {
+    animation-delay: 0.21s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(6) {
+    animation-delay: 0.25s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(7) {
+    animation-delay: 0.29s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(8) {
+    animation-delay: 0.33s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(9) {
+    animation-delay: 0.37s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(10) {
+    animation-delay: 0.41s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(11) {
+    animation-delay: 0.45s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(12) {
+    animation-delay: 0.49s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(13) {
+    animation-delay: 0.53s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(14) {
+    animation-delay: 0.57s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(15) {
+    animation-delay: 0.61s;
+}
+
+#photographyGallery.photography-reveal .pin:nth-child(16) {
+    animation-delay: 0.65s;
+}
+
+
+/* OUR TOOL EXACT EXISTING PIN ANIMATION END */
+
+
+
+
+
+
+
+
+
