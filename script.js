@@ -1759,6 +1759,10 @@ function openSearchImageDirectly(imageSrc, title) {
 
 
 
+
+
+
+
 /* OUR TOOL CATEGORY NAVIGATION START */
 
 document.addEventListener("DOMContentLoaded", () => {
