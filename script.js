@@ -268,655 +268,655 @@ const pins = [];
 /* OUR TOOL SEARCH DATABASE START */
 
 pins.push({
-    image: "images/art/a1.jpg",
+    image: "Images/art/a1.jpg",
     title: "Art 1",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a2.jpg",
+    image: "Images/art/a2.jpg",
     title: "Art 2",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a3.jpg",
+    image: "Images/art/a3.jpg",
     title: "Art 3",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a4.jpg",
+    image: "Images/art/a4.jpg",
     title: "Art 4",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a5.jpg",
+    image: "Images/art/a5.jpg",
     title: "Art 5",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a6.jpg",
+    image: "Images/art/a6.jpg",
     title: "Art 6",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a7.jpg",
+    image: "Images/art/a7.jpg",
     title: "Art 7",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a8.jpg",
+    image: "Images/art/a8.jpg",
     title: "Art 8",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a9.jpg",
+    image: "Images/art/a9.jpg",
     title: "Art 9",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a10.jpg",
+    image: "Images/art/a10.jpg",
     title: "Art 10",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a11.jpg",
+    image: "Images/art/a11.jpg",
     title: "Art 11",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a12.jpg",
+    image: "Images/art/a12.jpg",
     title: "Art 12",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a13.jpg",
+    image: "Images/art/a13.jpg",
     title: "Art 13",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a14.jpg",
+    image: "Images/art/a14.jpg",
     title: "Art 14",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a15.jpg",
+    image: "Images/art/a15.jpg",
     title: "Art 15",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a16.jpg",
+    image: "Images/art/a16.jpg",
     title: "Art 16",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a17.jpg",
+    image: "Images/art/a17.jpg",
     title: "Art 17",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a18.jpg",
+    image: "Images/art/a18.jpg",
     title: "Art 18",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a19.jpg",
+    image: "Images/art/a19.jpg",
     title: "Art 19",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a20.jpg",
+    image: "Images/art/a20.jpg",
     title: "Art 20",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a21.jpg",
+    image: "Images/art/a21.jpg",
     title: "Art 21",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a22.jpg",
+    image: "Images/art/a22.jpg",
     title: "Art 22",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a23.jpg",
+    image: "Images/art/a23.jpg",
     title: "Art 23",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a24.jpg",
+    image: "Images/art/a24.jpg",
     title: "Art 24",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a25.jpg",
+    image: "Images/art/a25.jpg",
     title: "Art 25",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a26.jpg",
+    image: "Images/art/a26.jpg",
     title: "Art 26",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a27.jpg",
+    image: "Images/art/a27.jpg",
     title: "Art 27",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a28.jpg",
+    image: "Images/art/a28.jpg",
     title: "Art 28",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a29.jpg",
+    image: "Images/art/a29.jpg",
     title: "Art 29",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a30.jpg",
+    image: "Images/art/a30.jpg",
     title: "Art 30",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a31.jpg",
+    image: "Images/art/a31.jpg",
     title: "Art 31",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a32.jpg",
+    image: "Images/art/a32.jpg",
     title: "Art 32",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a33.jpg",
+    image: "Images/art/a33.jpg",
     title: "Art 33",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a34.jpg",
+    image: "Images/art/a34.jpg",
     title: "Art 34",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a35.jpg",
+    image: "Images/art/a35.jpg",
     title: "Art 35",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a36.jpg",
+    image: "Images/art/a36.jpg",
     title: "Art 36",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a39.jpg",
+    image: "Images/art/a39.jpg",
     title: "Art 39",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a40.jpg",
+    image: "Images/art/a40.jpg",
     title: "Art 40",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a41.jpg",
+    image: "Images/art/a41.jpg",
     title: "Art 41",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a42.jpg",
+    image: "Images/art/a42.jpg",
     title: "Art 42",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a43.jpg",
+    image: "Images/art/a43.jpg",
     title: "Art 43",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a44.jpg",
+    image: "Images/art/a44.jpg",
     title: "Art 44",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a45.jpg",
+    image: "Images/art/a45.jpg",
     title: "Art 45",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a46.jpg",
+    image: "Images/art/a46.jpg",
     title: "Art 46",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a47.jpg",
+    image: "Images/art/a47.jpg",
     title: "Art 47",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a48.jpg",
+    image: "Images/art/a48.jpg",
     title: "Art 48",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/art/a49.jpg",
+    image: "Images/art/a49.jpg",
     title: "Art 49",
     tags: ["art", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b1.jpg",
+    image: "Images/fashion/b1.jpg",
     title: "Fashion 1",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b2.jpg",
+    image: "Images/fashion/b2.jpg",
     title: "Fashion 2",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b3.jpg",
+    image: "Images/fashion/b3.jpg",
     title: "Fashion 3",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b4.jpg",
+    image: "Images/fashion/b4.jpg",
     title: "Fashion 4",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b5.jpg",
+    image: "Images/fashion/b5.jpg",
     title: "Fashion 5",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b6.jpg",
+    image: "Images/fashion/b6.jpg",
     title: "Fashion 6",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b7.jpg",
+    image: "Images/fashion/b7.jpg",
     title: "Fashion 7",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b8.jpg",
+    image: "Images/fashion/b8.jpg",
     title: "Fashion 8",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b9.jpg",
+    image: "Images/fashion/b9.jpg",
     title: "Fashion 9",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b10.jpg",
+    image: "Images/fashion/b10.jpg",
     title: "Fashion 10",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b11.jpg",
+    image: "Images/fashion/b11.jpg",
     title: "Fashion 11",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b12.jpg",
+    image: "Images/fashion/b12.jpg",
     title: "Fashion 12",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b13.jpg",
+    image: "Images/fashion/b13.jpg",
     title: "Fashion 13",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b14.jpg",
+    image: "Images/fashion/b14.jpg",
     title: "Fashion 14",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b15.jpg",
+    image: "Images/fashion/b15.jpg",
     title: "Fashion 15",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b16.jpg",
+    image: "Images/fashion/b16.jpg",
     title: "Fashion 16",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b17.jpg",
+    image: "Images/fashion/b17.jpg",
     title: "Fashion 17",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b18.jpg",
+    image: "Images/fashion/b18.jpg",
     title: "Fashion 18",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b19.jpg",
+    image: "Images/fashion/b19.jpg",
     title: "Fashion 19",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b20.jpg",
+    image: "Images/fashion/b20.jpg",
     title: "Fashion 20",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/fashion/b21.jpg",
+    image: "Images/fashion/b21.jpg",
     title: "Fashion 21",
     tags: ["fashion", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c1.jpg",
+    image: "Images/gaming/c1.jpg",
     title: "Gaming 1",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c2.jpg",
+    image: "Images/gaming/c2.jpg",
     title: "Gaming 2",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c3.jpg",
+    image: "Images/gaming/c3.jpg",
     title: "Gaming 3",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c4.jpg",
+    image: "Images/gaming/c4.jpg",
     title: "Gaming 4",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c5.jpg",
+    image: "Images/gaming/c5.jpg",
     title: "Gaming 5",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c6.jpg",
+    image: "Images/gaming/c6.jpg",
     title: "Gaming 6",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c7.jpg",
+    image: "Images/gaming/c7.jpg",
     title: "Gaming 7",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c8.jpg",
+    image: "Images/gaming/c8.jpg",
     title: "Gaming 8",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c9.jpg",
+    image: "Images/gaming/c9.jpg",
     title: "Gaming 9",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c10.jpg",
+    image: "Images/gaming/c10.jpg",
     title: "Gaming 10",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c11.jpg",
+    image: "Images/gaming/c11.jpg",
     title: "Gaming 11",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c12.jpg",
+    image: "Images/gaming/c12.jpg",
     title: "Gaming 12",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c13.jpg",
+    image: "Images/gaming/c13.jpg",
     title: "Gaming 13",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c14.jpg",
+    image: "Images/gaming/c14.jpg",
     title: "Gaming 14",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c15.jpg",
+    image: "Images/gaming/c15.jpg",
     title: "Gaming 15",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c16.jpg",
+    image: "Images/gaming/c16.jpg",
     title: "Gaming 16",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c17.jpg",
+    image: "Images/gaming/c17.jpg",
     title: "Gaming 17",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c18.jpg",
+    image: "Images/gaming/c18.jpg",
     title: "Gaming 18",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c19.jpg",
+    image: "Images/gaming/c19.jpg",
     title: "Gaming 19",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c20.jpg",
+    image: "Images/gaming/c20.jpg",
     title: "Gaming 20",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c21.jpg",
+    image: "Images/gaming/c21.jpg",
     title: "Gaming 21",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c22.jpg",
+    image: "Images/gaming/c22.jpg",
     title: "Gaming 22",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c23.jpg",
+    image: "Images/gaming/c23.jpg",
     title: "Gaming 23",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c24.jpg",
+    image: "Images/gaming/c24.jpg",
     title: "Gaming 24",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c25.jpg",
+    image: "Images/gaming/c25.jpg",
     title: "Gaming 25",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c26.jpg",
+    image: "Images/gaming/c26.jpg",
     title: "Gaming 26",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/gaming/c27.jpg",
+    image: "Images/gaming/c27.jpg",
     title: "Gaming 27",
     tags: ["gaming", "collection"]
 });
 
 pins.push({
-    image: "images/tech/e1.jpg",
+    image: "Images/tech/e1.jpg",
     title: "Tech 1",
     tags: ["tech", "collection"]
 });
 
 pins.push({
-    image: "images/tech/e2.jpg",
+    image: "Images/tech/e2.jpg",
     title: "Tech 2",
     tags: ["tech", "collection"]
 });
 
 pins.push({
-    image: "images/tech/e3.jpg",
+    image: "Images/tech/e3.jpg",
     title: "Tech 3",
     tags: ["tech", "collection"]
 });
 
 pins.push({
-    image: "images/tech/e4.jpg",
+    image: "Images/tech/e4.jpg",
     title: "Tech 4",
     tags: ["tech", "collection"]
 });
 
 pins.push({
-    image: "images/tech/e5.jpg",
+    image: "Images/tech/e5.jpg",
     title: "Tech 5",
     tags: ["tech", "collection"]
 });
 
 pins.push({
-    image: "images/tech/e6.jpg",
+    image: "Images/tech/e6.jpg",
     title: "Tech 6",
     tags: ["tech", "collection"]
 });
 
 pins.push({
-    image: "images/tech/e7.jpg",
+    image: "Images/tech/e7.jpg",
     title: "Tech 7",
     tags: ["tech", "collection"]
 });
 
 pins.push({
-    image: "images/tech/e8.jpg",
+    image: "Images/tech/e8.jpg",
     title: "Tech 8",
     tags: ["tech", "collection"]
 });
 
 pins.push({
-    image: "images/tech/e9.jpg",
+    image: "Images/tech/e9.jpg",
     title: "Tech 9",
     tags: ["tech", "collection"]
 });
 
 pins.push({
-    image: "images/tech/e10.jpg",
+    image: "Images/tech/e10.jpg",
     title: "Tech 10",
     tags: ["tech", "collection"]
 });
 
 pins.push({
-    image: "images/photography/f1.jpg",
+    image: "Images/photography/f1.jpg",
     title: "Photography 1",
     tags: ["photography", "collection"]
 });
 
 pins.push({
-    image: "images/photography/f2.jpg",
+    image: "Images/photography/f2.jpg",
     title: "Photography 2",
     tags: ["photography", "collection"]
 });
 
 pins.push({
-    image: "images/photography/f3.jpg",
+    image: "Images/photography/f3.jpg",
     title: "Photography 3",
     tags: ["photography", "collection"]
 });
 
 pins.push({
-    image: "images/photography/f4.jpg",
+    image: "Images/photography/f4.jpg",
     title: "Photography 4",
     tags: ["photography", "collection"]
 });
@@ -925,25 +925,25 @@ pins.push({
 
 
     pins.push({
-        image: `images/aesthetic/d1.jpg`,
+        image: `Images/aesthetic/d1.jpg`,
         title: `Aesthetic 1`,
         tags: ["aesthetic"]
     });
 
     pins.push({
-        image: `images/aesthetic/d2.jpg`,
+        image: `Images/aesthetic/d2.jpg`,
         title: `Aesthetic 2`,
         tags: ["aesthetic"]
     });
 
     pins.push({
-        image: `images/aesthetic/d3.jpg`,
+        image: `Images/aesthetic/d3.jpg`,
         title: `Aesthetic 3`,
         tags: ["aesthetic"]
     });
 
     pins.push({
-        image: `images/aesthetic/d4.jpg`,
+        image: `Images/aesthetic/d4.jpg`,
         title: `Aesthetic 4`,
         tags: ["aesthetic"]
     });
@@ -961,7 +961,7 @@ const artImages = [
 artImages.forEach(i => {
 
     pins.push({
-        image: `images/art/a${i}.jpg`,
+        image: `Images/art/a${i}.jpg`,
         title: `Art ${i}`,
         tags: ["art"]
     });
@@ -969,19 +969,19 @@ artImages.forEach(i => {
 });
 
     pins.push({
-        image: `images/art/a42.jpg`,
+        image: `Images/art/a42.jpg`,
         title: `Art 42`,
         tags: ["art"]
     });
 
     pins.push({
-        image: `images/art/a43.jpg`,
+        image: `Images/art/a43.jpg`,
         title: `Art 43`,
         tags: ["art"]
     });
 
     pins.push({
-        image: `images/art/a44.jpg`,
+        image: `Images/art/a44.jpg`,
         title: `Art 44`,
         tags: ["art"]
     });
@@ -991,7 +991,7 @@ artImages.forEach(i => {
 
 for (let i = 1; i <= 21; i++) {
     pins.push({
-        image: `images/fashion/b${i}.jpg`,
+        image: `Images/fashion/b${i}.jpg`,
         title: `Fashion ${i}`,
         tags: ["fashion"]
     });
@@ -1003,7 +1003,7 @@ for (let i = 1; i <= 21; i++) {
 for (let i = 1; i <= 27; i++) {
 
     pins.push({
-        image: `images/gaming/c${i}.jpg`,
+        image: `Images/gaming/c${i}.jpg`,
         title: `Gaming ${i}`,
         tags: ["gaming"]
     });
@@ -1949,3 +1949,247 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* OUR TOOL CATEGORY NAVIGATION END */
+
+
+
+
+/* OUR TOOL MASONRY LAYOUT START */
+
+(() => {
+
+    const GAP = 18;
+    const MIN_PIN_WIDTH = 220;
+
+    function layoutPinGrid(grid) {
+
+        if (!grid) {
+            return;
+        }
+
+        if (grid.clientWidth === 0) {
+            return;
+        }
+
+        const pins = Array.from(
+            grid.querySelectorAll(":scope > .pin")
+        );
+
+        if (!pins.length) {
+            grid.style.height = "0px";
+            return;
+        }
+
+        const width = grid.clientWidth;
+
+        const columns = Math.max(
+            1,
+            Math.floor(
+                (width + GAP)
+                / (MIN_PIN_WIDTH + GAP)
+            )
+        );
+
+        const pinWidth =
+            (width - GAP * (columns - 1))
+            / columns;
+
+        const columnHeights =
+            Array(columns).fill(0);
+
+        pins.forEach(pin => {
+
+            pin.style.setProperty(
+                "--our-pin-width",
+                `${pinWidth}px`
+            );
+
+        });
+
+        pins.forEach(pin => {
+
+            let column = 0;
+
+            for (
+                let i = 1;
+                i < columnHeights.length;
+                i++
+            ) {
+
+                if (
+                    columnHeights[i]
+                    < columnHeights[column]
+                ) {
+
+                    column = i;
+
+                }
+
+            }
+
+            const left =
+                column
+                * (pinWidth + GAP);
+
+            const top =
+                columnHeights[column];
+
+            pin.style.left =
+                `${left}px`;
+
+            pin.style.top =
+                `${top}px`;
+
+            const height =
+                pin.getBoundingClientRect().height;
+
+            columnHeights[column] =
+                top + height + GAP;
+
+        });
+
+        const totalHeight =
+            Math.max(...columnHeights, 0);
+
+        grid.style.height =
+            `${Math.max(0, totalHeight - GAP)}px`;
+
+    }
+
+
+    function layoutAllPinGrids() {
+
+        document
+            .querySelectorAll(".pin-grid")
+            .forEach(layoutPinGrid);
+
+    }
+
+
+    let layoutQueued = false;
+
+    function scheduleLayout() {
+
+        if (layoutQueued) {
+            return;
+        }
+
+        layoutQueued = true;
+
+        requestAnimationFrame(() => {
+
+            layoutQueued = false;
+
+            layoutAllPinGrids();
+
+            requestAnimationFrame(
+                layoutAllPinGrids
+            );
+
+        });
+
+    }
+
+
+    function watchImages() {
+
+        document
+            .querySelectorAll(
+                ".pin-grid img"
+            )
+            .forEach(img => {
+
+                if (img.complete) {
+                    return;
+                }
+
+                img.addEventListener(
+                    "load",
+                    scheduleLayout,
+                    { once: true }
+                );
+
+            });
+
+    }
+
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+
+            scheduleLayout();
+            watchImages();
+
+            const observer =
+                new MutationObserver(
+                    mutations => {
+
+                        let needsLayout = false;
+
+                        for (
+                            const mutation
+                            of mutations
+                        ) {
+
+                            if (
+                                mutation.type
+                                === "childList"
+                            ) {
+
+                                needsLayout = true;
+                                break;
+
+                            }
+
+                            if (
+                                mutation.type
+                                === "attributes"
+                                &&
+                                mutation.attributeName
+                                === "class"
+                            ) {
+
+                                needsLayout = true;
+                                break;
+
+                            }
+
+                        }
+
+                        if (needsLayout) {
+                            watchImages();
+                            scheduleLayout();
+                        }
+
+                    }
+                );
+
+            observer.observe(
+                document.body,
+                {
+                    subtree: true,
+                    childList: true,
+                    attributes: true,
+                    attributeFilter: [
+                        "class"
+                    ]
+                }
+            );
+
+        }
+    );
+
+
+    window.addEventListener(
+        "load",
+        scheduleLayout
+    );
+
+    window.addEventListener(
+        "resize",
+        scheduleLayout
+    );
+
+})();
+
+/* OUR TOOL MASONRY LAYOUT END */
