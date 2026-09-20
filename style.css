@@ -295,13 +295,13 @@ nav {
 
 .aesthetic { 
     background: 
-        url("images/aesthetic/aestheticcover.jpg") 
+        url("Images/aesthetic/aestheticcover.jpg") 
         center / cover no-repeat; 
 } 
  
 .gaming { 
     background: 
-        url("images/gaming/gamingcover.jpg") 
+        url("Images/gaming/gamingcover.jpg") 
         center / cover no-repeat; 
 } 
  
@@ -311,25 +311,25 @@ nav {
             rgba(0,0,0,0.2), 
             rgba(0,0,0,0.5) 
         ), 
-        url("images/art/artcover.jpg") 
+        url("Images/art/artcover.jpg") 
         center / cover no-repeat; 
 } 
  
 .fashion { 
     background: 
-        url("images/fashion/fashioncover.jpg") 
+        url("Images/fashion/fashioncover.jpg") 
         center / cover no-repeat; 
 } 
  
 .tech { 
     background: 
-        url("images/tech/techcover.jpg") 
+        url("Images/tech/techcover.jpg") 
         center / cover no-repeat; 
 } 
  
 .photography { 
     background: 
-        url("images/photography/photographycover.jpg") 
+        url("Images/photography/photographycover.jpg") 
         center / cover no-repeat; 
 } 
 
@@ -1950,3 +1950,29 @@ body.light-mode .viewer-arrow:hover {
 
 
 
+
+
+
+/* OUR TOOL MASONRY FIX START */
+
+/*
+ * True Pinterest-style waterfall layout.
+ * The old multi-column balancing can leave uneven blank gaps.
+ */
+
+.pin-grid {
+    position: relative !important;
+    display: block !important;
+    columns: auto !important;
+    column-count: auto !important;
+    column-gap: 0 !important;
+    width: 100%;
+}
+
+.pin-grid .pin {
+    position: absolute !important;
+    margin: 0 !important;
+    width: var(--our-pin-width) !important;
+}
+
+/* OUR TOOL MASONRY FIX END */
