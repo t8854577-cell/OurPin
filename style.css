@@ -1637,6 +1637,8 @@ body.light-mode .viewer-arrow:hover {
 
 
 
+
+
 /* OUR TOOL EXACT EXISTING PIN ANIMATION START */
 
 
@@ -1953,26 +1955,6 @@ body.light-mode .viewer-arrow:hover {
 
 
 
-/* OUR TOOL MASONRY FIX START */
 
-/*
- * True Pinterest-style waterfall layout.
- * The old multi-column balancing can leave uneven blank gaps.
- */
 
-.pin-grid {
-    position: relative !important;
-    display: block !important;
-    columns: auto !important;
-    column-count: auto !important;
-    column-gap: 0 !important;
-    width: 100%;
-}
 
-.pin-grid .pin {
-    position: absolute !important;
-    margin: 0 !important;
-    width: var(--our-pin-width) !important;
-}
-
-/* OUR TOOL MASONRY FIX END */
