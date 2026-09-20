@@ -1456,26 +1456,6 @@ document.addEventListener(
    SAVE
 ========================================================= */
 
-viewerSave.addEventListener(
-    "click",
-    () => {
-
-        viewerSave.classList.toggle("saved");
-
-        if (viewerSave.classList.contains("saved")) {
-
-            viewerSave.innerHTML =
-                "<span>♥</span> Saved";
-
-        } else {
-
-            viewerSave.innerHTML =
-                "<span>♡</span> Save";
-
-        }
-
-    }
-);
 
 
 /* =========================================================
@@ -1693,6 +1673,10 @@ function openSearchImageDirectly(imageSrc, title) {
 
     document.body.style.overflow = "hidden";
 }
+
+
+
+
 
 
 
