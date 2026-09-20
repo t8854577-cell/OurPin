@@ -484,6 +484,18 @@ pins.push({
 });
 
 pins.push({
+    image: "Images/art/a37.jpg",
+    title: "Art 37",
+    tags: ["art", "collection"]
+});
+
+pins.push({
+    image: "Images/art/a38.jpg",
+    title: "Art 38",
+    tags: ["art", "collection"]
+});
+
+pins.push({
     image: "Images/art/a39.jpg",
     title: "Art 39",
     tags: ["art", "collection"]
@@ -528,24 +540,6 @@ pins.push({
 pins.push({
     image: "Images/art/a46.jpg",
     title: "Art 46",
-    tags: ["art", "collection"]
-});
-
-pins.push({
-    image: "Images/art/a47.jpg",
-    title: "Art 47",
-    tags: ["art", "collection"]
-});
-
-pins.push({
-    image: "Images/art/a48.jpg",
-    title: "Art 48",
-    tags: ["art", "collection"]
-});
-
-pins.push({
-    image: "Images/art/a49.jpg",
-    title: "Art 49",
     tags: ["art", "collection"]
 });
 
@@ -1699,6 +1693,10 @@ function openSearchImageDirectly(imageSrc, title) {
 
     document.body.style.overflow = "hidden";
 }
+
+
+
+
 
 
 
