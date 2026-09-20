@@ -1,0 +1,845 @@
+(() => {
+    "use strict";
+
+    const API =
+        "https://ourpin-api.t8854577.workers.dev";
+
+    const SESSION_KEY = "ourpin_session";
+
+    let currentUser = null;
+    let savedPins = [];
+
+    /* =====================================================
+       SESSION
+    ===================================================== */
+
+    function getSession() {
+        return localStorage.getItem(SESSION_KEY) || "";
+    }
+
+    function setSession(token) {
+        if (token) {
+            localStorage.setItem(SESSION_KEY, token);
+        } else {
+            localStorage.removeItem(SESSION_KEY);
+        }
+    }
+
+    function readOAuthToken() {
+        const hash =
+            window.location.hash.replace(/^#/, "");
+
+        const params =
+            new URLSearchParams(hash);
+
+        const token =
+            params.get("auth");
+
+        if (!token) return;
+
+        setSession(token);
+
+        history.replaceState(
+            {},
+            document.title,
+            window.location.pathname +
+            window.location.search
+        );
+    }
+
+    /* =====================================================
+       API
+    ===================================================== */
+
+    async function api(path, options = {}) {
+
+        const headers =
+            new Headers(options.headers || {});
+
+        headers.set(
+            "Accept",
+            "application/json"
+        );
+
+        const session = getSession();
+
+        if (session) {
+            headers.set(
+                "Authorization",
+                `Bearer ${session}`
+            );
+        }
+
+        if (options.body) {
+            headers.set(
+                "Content-Type",
+                "application/json"
+            );
+        }
+
+        const response =
+            await fetch(
+                API + path,
+                {
+                    ...options,
+                    headers,
+                    cache: "no-store"
+                }
+            );
+
+        let data = {};
+
+        try {
+            data = await response.json();
+        } catch {}
+
+        if (!response.ok) {
+
+            if (response.status === 401) {
+                setSession("");
+                currentUser = null;
+            }
+
+            throw new Error(
+                data.error ||
+                `Request failed (${response.status})`
+            );
+        }
+
+        return data;
+    }
+
+    /* =====================================================
+       USER
+    ===================================================== */
+
+    async function loadUser() {
+
+        if (!getSession()) {
+            currentUser = null;
+            return null;
+        }
+
+        try {
+
+            const data =
+                await api("/api/me");
+
+            currentUser =
+                data.user || null;
+
+            return currentUser;
+
+        } catch {
+
+            currentUser = null;
+            setSession("");
+
+            return null;
+        }
+    }
+
+    /* =====================================================
+       SAVES
+    ===================================================== */
+
+    async function loadSaves() {
+
+        if (!currentUser) {
+            savedPins = [];
+            return [];
+        }
+
+        try {
+
+            const data =
+                await api("/api/saves");
+
+            savedPins =
+                Array.isArray(data.saves)
+                    ? data.saves
+                    : [];
+
+            return savedPins;
+
+        } catch {
+
+            savedPins = [];
+            return [];
+        }
+    }
+
+    function normalizePath(path) {
+
+        if (!path) return "";
+
+        let value =
+            String(path)
+                .replace(/\\/g, "/")
+                .split("?")[0]
+                .split("#")[0];
+
+        try {
+
+            const absolute =
+                new URL(
+                    value,
+                    window.location.href
+                );
+
+            value =
+                absolute.pathname
+                    .replace(/^\/+/, "");
+
+            const parts =
+                value.split("/");
+
+            if (
+                parts[0] &&
+                parts[0].toLowerCase() ===
+                "ourpin"
+            ) {
+                parts.shift();
+                value = parts.join("/");
+            }
+
+        } catch {}
+
+        if (
+            value
+                .toLowerCase()
+                .startsWith("images/")
+        ) {
+            value =
+                "Images/" +
+                value.slice(7);
+        }
+
+        return value;
+    }
+
+    function currentImagePath() {
+
+        const image =
+            document.getElementById(
+                "viewerImage"
+            );
+
+        if (!image) return "";
+
+        return normalizePath(
+            image.getAttribute("src") ||
+            image.src
+        );
+    }
+
+    function currentTitle() {
+
+        return (
+            document.getElementById(
+                "viewerTitle"
+            )?.textContent
+            ?.trim() || ""
+        );
+    }
+
+    function isSaved(path) {
+
+        const target =
+            normalizePath(path)
+                .toLowerCase();
+
+        return savedPins.some(pin =>
+            normalizePath(
+                pin.image_path
+            ).toLowerCase() === target
+        );
+    }
+
+    /* =====================================================
+       SAVE BUTTON
+    ===================================================== */
+
+    async function saveCurrentPin() {
+
+        const path =
+            currentImagePath();
+
+        if (!path) return;
+
+        if (!currentUser) {
+            openProfile();
+            return;
+        }
+
+        const button =
+            document.getElementById(
+                "viewerSave"
+            );
+
+        const alreadySaved =
+            isSaved(path);
+
+        button?.setAttribute(
+            "disabled",
+            "true"
+        );
+
+        try {
+
+            if (alreadySaved) {
+
+                await api(
+                    "/api/saves",
+                    {
+                        method: "DELETE",
+                        body: JSON.stringify({
+                            imagePath: path
+                        })
+                    }
+                );
+
+                savedPins =
+                    savedPins.filter(
+                        pin =>
+                            normalizePath(
+                                pin.image_path
+                            ).toLowerCase() !==
+                            path.toLowerCase()
+                    );
+
+            } else {
+
+                await api(
+                    "/api/saves",
+                    {
+                        method: "POST",
+                        body: JSON.stringify({
+                            imagePath: path,
+                            title: currentTitle(),
+                            category: ""
+                        })
+                    }
+                );
+
+                savedPins.unshift({
+                    image_path: path,
+                    title: currentTitle(),
+                    category: "",
+                    created_at:
+                        Math.floor(
+                            Date.now() / 1000
+                        )
+                });
+            }
+
+            updateSaveButton();
+
+        } catch (error) {
+
+            console.error(
+                "OurPin save error:",
+                error
+            );
+
+            alert(
+                error.message ||
+                "Could not save this pin."
+            );
+
+        } finally {
+
+            button?.removeAttribute(
+                "disabled"
+            );
+        }
+    }
+
+    function updateSaveButton() {
+
+        const button =
+            document.getElementById(
+                "viewerSave"
+            );
+
+        if (!button) return;
+
+        const saved =
+            isSaved(
+                currentImagePath()
+            );
+
+        button.classList.toggle(
+            "saved",
+            saved
+        );
+
+        button.innerHTML =
+            saved
+                ? "<span>♥</span> Saved"
+                : "<span>♡</span> Save";
+    }
+
+    /* =====================================================
+       PROFILE
+    ===================================================== */
+
+    function openProfile() {
+
+        let overlay =
+            document.getElementById(
+                "ourpinProfileOverlay"
+            );
+
+        if (!overlay) {
+
+            overlay =
+                document.createElement(
+                    "div"
+                );
+
+            overlay.id =
+                "ourpinProfileOverlay";
+
+            overlay.style.cssText = `
+                position:fixed;
+                inset:0;
+                z-index:99999;
+                background:rgba(0,0,0,.75);
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                padding:20px;
+            `;
+
+            overlay.innerHTML = `
+                <div id="ourpinProfileBox"
+                    style="
+                        width:min(850px,95vw);
+                        max-height:90vh;
+                        overflow:auto;
+                        background:#111;
+                        color:white;
+                        border:1px solid #333;
+                        border-radius:20px;
+                        padding:28px;
+                    ">
+                </div>
+            `;
+
+            overlay.addEventListener(
+                "click",
+                event => {
+                    if (
+                        event.target ===
+                        overlay
+                    ) {
+                        overlay.remove();
+                    }
+                }
+            );
+
+            document.body.appendChild(
+                overlay
+            );
+        }
+
+        renderProfile();
+    }
+
+    function renderProfile() {
+
+        const box =
+            document.getElementById(
+                "ourpinProfileBox"
+            );
+
+        if (!box) return;
+
+        if (!currentUser) {
+
+            box.innerHTML = `
+                <div style="
+                    text-align:center;
+                    padding:60px 20px;
+                ">
+
+                    <button
+                        id="ourpinCloseProfile"
+                        style="
+                            float:right;
+                            background:none;
+                            color:#aaa;
+                            border:0;
+                            font-size:25px;
+                            cursor:pointer;
+                        "
+                    >×</button>
+
+                    <h1>OurPin Profile</h1>
+
+                    <p style="
+                        color:#999;
+                        margin:15px 0 30px;
+                    ">
+                        Sign in to save and access
+                        your pins anywhere.
+                    </p>
+
+                    <button
+                        id="ourpinGithubLogin"
+                        style="
+                            background:white;
+                            color:black;
+                            border:0;
+                            border-radius:12px;
+                            padding:13px 22px;
+                            font-size:15px;
+                            cursor:pointer;
+                        "
+                    >
+                        Continue with GitHub
+                    </button>
+
+                </div>
+            `;
+
+            document
+                .getElementById(
+                    "ourpinCloseProfile"
+                )
+                ?.addEventListener(
+                    "click",
+                    () =>
+                        document
+                            .getElementById(
+                                "ourpinProfileOverlay"
+                            )
+                            ?.remove()
+                );
+
+            document
+                .getElementById(
+                    "ourpinGithubLogin"
+                )
+                ?.addEventListener(
+                    "click",
+                    () => {
+                        window.location.href =
+                            API +
+                            "/auth/github";
+                    }
+                );
+
+            return;
+        }
+
+        box.innerHTML = `
+            <button
+                id="ourpinCloseProfile"
+                style="
+                    float:right;
+                    background:none;
+                    color:#aaa;
+                    border:0;
+                    font-size:25px;
+                    cursor:pointer;
+                "
+            >×</button>
+
+            <div style="
+                display:flex;
+                align-items:center;
+                gap:15px;
+                margin-bottom:35px;
+            ">
+
+                <img
+                    src="${currentUser.avatarUrl || ""}"
+                    style="
+                        width:65px;
+                        height:65px;
+                        border-radius:50%;
+                    "
+                >
+
+                <div>
+                    <h2 style="margin:0">
+                        @${currentUser.login}
+                    </h2>
+
+                    <p style="
+                        color:#888;
+                        margin:5px 0 0;
+                    ">
+                        GitHub account
+                    </p>
+                </div>
+
+            </div>
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin-bottom:18px;
+            ">
+
+                <h2 style="margin:0">
+                    Saved Pins
+                </h2>
+
+                <button
+                    id="ourpinLogout"
+                    style="
+                        background:#181818;
+                        color:white;
+                        border:1px solid #333;
+                        border-radius:10px;
+                        padding:9px 14px;
+                        cursor:pointer;
+                    "
+                >
+                    Log out
+                </button>
+
+            </div>
+
+            <div
+                id="ourpinSavedGrid"
+                style="
+                    display:grid;
+                    grid-template-columns:
+                        repeat(
+                            auto-fill,
+                            minmax(170px,1fr)
+                        );
+                    gap:15px;
+                "
+            >
+                Loading...
+            </div>
+        `;
+
+        document
+            .getElementById(
+                "ourpinCloseProfile"
+            )
+            ?.addEventListener(
+                "click",
+                () =>
+                    document
+                        .getElementById(
+                            "ourpinProfileOverlay"
+                        )
+                        ?.remove()
+            );
+
+        document
+            .getElementById(
+                "ourpinLogout"
+            )
+            ?.addEventListener(
+                "click",
+                async () => {
+
+                    try {
+                        await api(
+                            "/api/logout",
+                            {
+                                method:"POST"
+                            }
+                        );
+                    } catch {}
+
+                    setSession("");
+
+                    currentUser = null;
+                    savedPins = [];
+
+                    renderProfile();
+                }
+            );
+
+        renderSavedPins();
+    }
+
+    function renderSavedPins() {
+
+        const grid =
+            document.getElementById(
+                "ourpinSavedGrid"
+            );
+
+        if (!grid) return;
+
+        if (!savedPins.length) {
+
+            grid.innerHTML = `
+                <div style="
+                    grid-column:1/-1;
+                    text-align:center;
+                    color:#777;
+                    padding:60px 10px;
+                ">
+                    No saved pins yet.
+                </div>
+            `;
+
+            return;
+        }
+
+        grid.innerHTML = "";
+
+        savedPins.forEach(pin => {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+            card.style.cssText = `
+                background:#181818;
+                border-radius:14px;
+                overflow:hidden;
+                cursor:pointer;
+            `;
+
+            card.innerHTML = `
+                <img
+                    src="${pin.image_path}"
+                    style="
+                        width:100%;
+                        aspect-ratio:3/4;
+                        object-fit:cover;
+                        display:block;
+                    "
+                >
+
+                <div style="
+                    padding:10px;
+                    font-size:13px;
+                ">
+                    ${pin.title || "Saved Pin"}
+                </div>
+            `;
+
+            grid.appendChild(card);
+        });
+    }
+
+    /* =====================================================
+       PROFILE BUTTON
+    ===================================================== */
+
+    function setupProfile() {
+
+        const links =
+            document.querySelectorAll(
+                ".nav-item"
+            );
+
+        links.forEach(link => {
+
+            if (
+                link.textContent
+                    .trim()
+                    .toLowerCase()
+                    .includes("profile")
+            ) {
+
+                link.addEventListener(
+                    "click",
+                    event => {
+                        event.preventDefault();
+                        openProfile();
+                    }
+                );
+            }
+        });
+    }
+
+    /* =====================================================
+       SAVE BUTTON
+    ===================================================== */
+
+    function setupSave() {
+
+        const button =
+            document.getElementById(
+                "viewerSave"
+            );
+
+        if (!button) return;
+
+        button.addEventListener(
+            "click",
+            saveCurrentPin
+        );
+    }
+
+    /* =====================================================
+       BOOT
+    ===================================================== */
+
+    async function boot() {
+
+        readOAuthToken();
+
+        setupProfile();
+        setupSave();
+
+        await loadUser();
+
+        if (currentUser) {
+            await loadSaves();
+            updateSaveButton();
+        }
+    }
+
+    window.OurPinAccount = {
+        savePin: async data => {
+
+            if (!currentUser) {
+                openProfile();
+                return;
+            }
+
+            await api(
+                "/api/saves",
+                {
+                    method:"POST",
+                    body:JSON.stringify({
+                        imagePath:
+                            data.imagePath,
+                        title:
+                            data.title || "",
+                        category:
+                            data.category || ""
+                    })
+                }
+            );
+
+            await loadSaves();
+            updateSaveButton();
+        },
+
+        refreshSaveState:
+            updateSaveButton,
+
+        openProfile
+    };
+
+    if (
+        document.readyState ===
+        "loading"
+    ) {
+        document.addEventListener(
+            "DOMContentLoaded",
+            boot
+        );
+    } else {
+        boot();
+    }
+
+})();
