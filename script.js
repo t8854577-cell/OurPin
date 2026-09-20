@@ -897,30 +897,6 @@ pins.push({
     tags: ["tech", "collection"]
 });
 
-pins.push({
-    image: "Images/photography/f1.jpg",
-    title: "Photography 1",
-    tags: ["photography", "collection"]
-});
-
-pins.push({
-    image: "Images/photography/f2.jpg",
-    title: "Photography 2",
-    tags: ["photography", "collection"]
-});
-
-pins.push({
-    image: "Images/photography/f3.jpg",
-    title: "Photography 3",
-    tags: ["photography", "collection"]
-});
-
-pins.push({
-    image: "Images/photography/f4.jpg",
-    title: "Photography 4",
-    tags: ["photography", "collection"]
-});
-
 /* OUR TOOL SEARCH DATABASE END */
 
 
@@ -1723,6 +1699,10 @@ function openSearchImageDirectly(imageSrc, title) {
 
     document.body.style.overflow = "hidden";
 }
+
+
+
+
 
 
 
