@@ -1209,3 +1209,24 @@ a.news-card:hover h3 {
         font-size: 13px;
     }
 }
+
+
+/* CLICKABLE ADDA247 PANEL */
+
+.analysis-card-link {
+    display: flex;
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.analysis-card-link:hover {
+    outline: 1px solid #888888;
+}
+
+.analysis-card-link:focus-visible,
+a.news-card:focus-visible {
+    outline: 2px solid #777777;
+    outline-offset: 4px;
+}
