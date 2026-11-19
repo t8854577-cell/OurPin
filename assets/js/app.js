@@ -229,6 +229,92 @@ practiceSets.adda247 = {
 };
 
 
+async function loadGeneratedPracticeSet() {
+
+    const id = new URLSearchParams(window.location.search).get("id");
+
+    if (id !== "adda247") return;
+
+    try {
+
+        const response = await fetch("data/daily_practice.json", {
+            cache: "no-store"
+        });
+
+        if (!response.ok) {
+            throw new Error("Could not load generated JSON: HTTP " + response.status);
+        }
+
+        const data = await response.json();
+
+        if (
+            typeof data.title !== "string" ||
+            typeof data.passage !== "string" ||
+            !Array.isArray(data.questions)
+        ) {
+            throw new Error("Invalid AI content structure.");
+        }
+
+        const convertedQuestions = data.questions.map(question => {
+
+            const options = question.options.map(option => ({
+                label: option.label,
+                text: option.text
+            }));
+
+            const answerIndex = options.findIndex(
+                option => option.label === question.correct_option
+            );
+
+            if (
+                options.length !== 4 ||
+                answerIndex === -1 ||
+                !question.question
+            ) {
+                throw new Error("Invalid question or answer structure.");
+            }
+
+            return {
+                question: question.question,
+                options: options.map(option => option.text),
+                answer: answerIndex
+            };
+
+        });
+
+        practiceSets.adda247 = {
+
+            category: "SECTION B / ADDA247",
+
+            title: data.title,
+
+            description: "AI-generated comprehension practice.",
+
+            passage: data.passage
+                .split(/\r?\n\s*\r?\n/)
+                .map(paragraph => paragraph.trim())
+                .filter(Boolean),
+
+            questions: convertedQuestions,
+
+            generated: true
+
+        };
+
+        answerExplanations.adda247 = data.questions.map(
+            question => question.explanation || "Refer to the passage."
+        );
+
+        console.log("AI practice content loaded successfully.");
+
+    } catch (error) {
+
+        console.error("AI practice loading failed:", error);
+
+    }
+}
+
+
 // DISPLAY CURRENT DATE
 
 function updateDate() {
