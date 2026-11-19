@@ -1,0 +1,76 @@
+{
+  "generated_at": "2026-11-19T17:33:44.739387+00:00",
+  "title": "Understanding Artificial Intelligence: Architecture, Potential, and Perils",
+  "passage": "Artificial Intelligence (AI) represents the simulation of human intelligence in machines programmed to think, adapt, and learn. Rather than operating under static, handcrafted rules, modern AI predominantly relies on machine learning algorithms that parse vast datasets to discern subtle patterns and make autonomous predictions. Today's deployed systems are categorized as 'Narrow AI'—highly specialized agents engineered to excel at designated tasks, such as diagnosing medical scans or playing grandmaster chess, without possessing transferable consciousness or broader awareness. The theoretical frontier, 'Artificial General Intelligence' (AGI), envisions systems with versatile cognition capable of matching or surpassing human adaptability across disparate domains; however, it remains purely speculative. The increasing integration of Narrow AI into critical socio-economic frameworks has heightened ethical debates. Algorithmic bias stands out as a prominent concern; because models learn from historical datasets, they inevitably mirror and amplify entrenched societal prejudices unless actively mitigated. Furthermore, the opacity of deep neural networks—frequently described as the 'black box' problem—poses severe hurdles for accountability, as even the engineers who design these architectures struggle to trace the exact rationale behind a particular algorithmic determination. Consequently, the discourse around AI has shifted from purely computational achievements toward regulatory frameworks that prioritize transparency, fairness, and human oversight.",
+  "questions": [
+    {
+      "question": "Based on the passage, what fundamentally differentiates Artificial General Intelligence (AGI) from contemporary Narrow AI?",
+      "options": [
+        {
+          "label": "A",
+          "text": "AGI operates solely through static rules, whereas Narrow AI employs pattern-discerning algorithms."
+        },
+        {
+          "label": "B",
+          "text": "AGI possesses versatile cognitive adaptability across domains, whereas Narrow AI is restricted to designated tasks."
+        },
+        {
+          "label": "C",
+          "text": "AGI has eliminated the black box problem, whereas Narrow AI remains entirely opaque."
+        },
+        {
+          "label": "D",
+          "text": "AGI requires historical datasets for functionality, whereas Narrow AI functions completely autonomously."
+        }
+      ],
+      "correct_option": "B",
+      "explanation": "The passage contrasts Narrow AI, which is engineered to excel only at designated tasks without broader awareness, with AGI, which envisions versatile cognition matching human adaptability across disparate domains."
+    },
+    {
+      "question": "According to the passage, why do deployed AI systems frequently exhibit algorithmic bias?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Engineers deliberately program societal prejudices into the underlying algorithms."
+        },
+        {
+          "label": "B",
+          "text": "Narrow AI models inadvertently learn and reinforce existing inequities embedded in historical data."
+        },
+        {
+          "label": "C",
+          "text": "Machine learning architectures lack the computational power to process complex patterns accurately."
+        },
+        {
+          "label": "D",
+          "text": "Regulatory frameworks force deep neural networks to prioritize biased outcomes."
+        }
+      ],
+      "correct_option": "B",
+      "explanation": "The text states that models learn from historical datasets, causing them to inevitably mirror and amplify entrenched societal prejudices unless deliberate mitigations are implemented."
+    },
+    {
+      "question": "What does the author imply about the 'black box' problem in modern artificial intelligence?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It complicates legal and ethical accountability because the path to a conclusion cannot be easily traced."
+        },
+        {
+          "label": "B",
+          "text": "It causes machine learning models to fail when applied to complex challenges such as medical diagnosis."
+        },
+        {
+          "label": "C",
+          "text": "It is a deliberate design choice that protects proprietary algorithmic architectures from intellectual theft."
+        },
+        {
+          "label": "D",
+          "text": "It renders the creation of regulatory frameworks impossible for modern computer scientists."
+        }
+      ],
+      "correct_option": "A",
+      "explanation": "The passage highlights that the opacity of the black box problem creates severe hurdles for accountability because even the engineers cannot easily trace the rationale behind algorithmic determinations."
+    }
+  ]
+}
