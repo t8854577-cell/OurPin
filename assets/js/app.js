@@ -490,7 +490,6 @@ async function initialiseOurPin() {
         });
     }
 }
-}
 
 const printButton = document.getElementById("print-key");
 
