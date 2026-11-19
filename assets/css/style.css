@@ -791,3 +791,111 @@ a.news-card:hover h3 {
         padding: 25px;
     }
 }
+
+
+/* =====================================
+   OURPIN — ANSWER KEY DESIGN
+===================================== */
+
+.answer-page {
+    max-width: 850px;
+    margin: 65px auto;
+    padding: 0 25px 80px;
+}
+
+.answer-page h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(36px, 5vw, 55px);
+    font-weight: normal;
+    margin: 20px 0;
+}
+
+.answer-key-list {
+    margin: 45px 0;
+}
+
+.answer-key-item {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    padding: 28px;
+    margin-bottom: 18px;
+    break-inside: avoid;
+}
+
+.answer-key-item h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.answer-key-item p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555555;
+    margin-top: 12px;
+}
+
+.answer-key-item p:nth-child(2) {
+    color: #111111;
+    font-weight: bold;
+}
+
+#print-key {
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid #111111;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.print-instruction {
+    font-size: 12px;
+    color: #777777;
+    margin-top: 12px;
+}
+
+/* PRINT / SAVE AS PDF */
+
+@media print {
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .header,
+    .footer,
+    .article-back,
+    #print-key,
+    .print-instruction {
+        display: none !important;
+    }
+
+    .answer-page {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .answer-key-item {
+        border: 1px solid #cccccc;
+        background: white;
+    }
+
+    .answer-key-item p {
+        color: black;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .answer-page {
+        margin: 40px auto;
+        padding: 0 7% 60px;
+    }
+
+    .answer-key-item {
+        padding: 20px;
+    }
+}
