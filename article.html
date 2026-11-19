@@ -4,113 +4,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Read detailed news analysis on OurPin.">
-    <title>Article — OurPin</title>
+    <meta name="description" content="Daily reading comprehension and MCQ practice on OurPin.">
+    <title>Comprehension Practice — OurPin</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-    <header class="header">
-        <a href="index.html" class="logo">OurPin<span>.</span></a>
+<header class="header">
+    <a href="index.html" class="logo">OurPin<span>.</span></a>
 
-        <nav class="navigation">
-            <a href="index.html">Home</a>
-            <a href="news.html">Daily News</a>
-            <a href="analysis.html">Video Analysis</a>
-        </nav>
+    <nav class="navigation">
+        <a href="index.html">Home</a>
+        <a href="news.html">Daily News</a>
+        <a href="analysis.html">Video Analysis</a>
+    </nav>
 
-        <div class="header-date" id="current-date"></div>
-    </header>
+    <div class="header-date" id="current-date"></div>
+</header>
 
-    <main class="article-page">
+<main class="practice-page">
 
-        <div class="article-breadcrumb">
-            <a href="index.html">Home</a>
-            <span>/</span>
-            <a href="news.html">Daily News</a>
-            <span>/</span>
-            <span>Article</span>
+    <div class="article-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="news.html">Daily News</a>
+        <span>/</span>
+        <span>Practice</span>
+    </div>
+
+    <section class="practice-header">
+
+        <p class="eyebrow" id="practice-category">
+            OURPIN / DAILY COMPREHENSION
+        </p>
+
+        <h1 id="article-title">
+            Reading Comprehension<span>.</span>
+        </h1>
+
+        <p class="article-description" id="article-description">
+            Read the passage carefully and answer the questions
+            that follow.
+        </p>
+
+        <div class="article-meta">
+            <span id="article-date">Daily Edition</span>
+            <span id="article-source">OURPIN EDITORIAL DESK</span>
         </div>
 
-        <article class="article-content">
+    </section>
 
-            <div class="article-header">
-                <span class="category" id="article-category">
-                    ARTICLE CATEGORY
-                </span>
+    <div class="practice-divider"></div>
 
-                <h1 id="article-title">
-                    Your important news, explained in detail.
-                </h1>
+    <!-- READING PASSAGE -->
 
-                <p class="article-description" id="article-description">
-                    Understand the development, its background
-                    and why it matters.
+    <section class="passage-section">
+
+        <div class="practice-section-heading">
+            <span>01</span>
+            <h2>Reading Passage</h2>
+        </div>
+
+        <div class="passage-content" id="passage-content">
+
+            <p>
+                Your daily reading comprehension passage will
+                appear here after the content is published.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- MCQ QUESTIONS -->
+
+    <section class="questions-section">
+
+        <div class="practice-section-heading">
+            <span>02</span>
+            <h2>Test Your Understanding</h2>
+        </div>
+
+        <div class="question-information">
+            <span id="question-count">MCQ PRACTICE</span>
+            <span>SELECT ONE OPTION PER QUESTION</span>
+        </div>
+
+        <form id="quiz-form">
+
+            <div id="question-list">
+
+                <p class="empty-practice">
+                    Practice questions will appear here.
                 </p>
 
-                <div class="article-meta">
-                    <span id="article-date">Daily Edition</span>
-                    <span>OurPin Editorial Desk</span>
-                </div>
             </div>
 
-            <div class="article-divider"></div>
+            <div class="quiz-submit-area">
 
-            <div class="article-body">
+                <button type="submit" id="submit-quiz">
+                    Submit Answers →
+                </button>
 
-                <section>
-                    <h2>What happened?</h2>
-                    <p id="article-introduction">
-                        The complete news explanation will appear here.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Background</h2>
-                    <p id="article-background">
-                        Relevant background information will appear here.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Why does it matter?</h2>
-                    <p id="article-significance">
-                        The significance of this development will appear here.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Key takeaways</h2>
-                    <ul id="article-takeaways">
-                        <li>Important points will appear here.</li>
-                    </ul>
-                </section>
-
-                <section class="article-sources">
-                    <h2>Original Sources</h2>
-                    <div id="article-sources">
-                        Original source links will appear here.
-                    </div>
-                </section>
+                <p id="quiz-result" aria-live="polite"></p>
 
             </div>
 
-        </article>
+        </form>
 
-        <div class="article-back">
-            <a href="news.html">← Back to Daily News</a>
+    </section>
+
+    <!-- ANSWER KEY -->
+
+    <section class="answer-section">
+
+        <div class="practice-section-heading">
+            <span>03</span>
+            <h2>Answer Key</h2>
         </div>
 
-    </main>
+        <div class="answer-card">
 
-    <footer class="footer">
-        <a href="index.html" class="logo">OurPin<span>.</span></a>
-        <p>Stay informed. Think better.</p>
-        <span>© 2026 OurPin</span>
-    </footer>
+            <div>
+                <h3>Separate Answer Key PDF</h3>
 
-    <script src="assets/js/app.js"></script>
+                <p>
+                    Access the correct answers and detailed
+                    explanations in a separate PDF.
+                </p>
+            </div>
+
+            <button type="button" id="answer-key-button" disabled>
+                PDF COMING SOON
+            </button>
+
+        </div>
+
+    </section>
+
+    <div class="article-back">
+        <a href="news.html">← Back to Daily News</a>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <a href="index.html" class="logo">OurPin<span>.</span></a>
+    <p>Stay informed. Think better.</p>
+    <span>© 2026 OurPin</span>
+</footer>
+
+<script src="assets/js/app.js"></script>
 
 </body>
 </html>
