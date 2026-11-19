@@ -424,6 +424,13 @@ const answerExplanations = {
 };
 
 
+answerExplanations.adda247 = [
+    "Global challenges can affect several countries simultaneously, making cooperation important.",
+    "The passage specifically identifies information exchange and policy coordination as benefits.",
+    "Mutual trust and communication are identified as essential conditions."
+];
+
+
 // LOAD ANSWER KEY
 
 function loadAnswerKey() {
