@@ -465,15 +465,39 @@ function loadPractice() {
 
 // INITIALISE WEBSITE
 
-function initialiseOurPin() {
+async function initialiseOurPin() {
+
     updateDate();
+
+    // Load AI-generated content first
+    await loadGeneratedPracticeSet();
+
+    // Display the updated practice content
     loadPractice();
+
+    // Initialise answer key
+    loadAnswerKey();
+
+    // Enable answer key button
+    setupAnswerKeyButton();
+
+    // Enable printing
+    const printButton = document.getElementById("print-key");
+
+    if (printButton) {
+        printButton.addEventListener("click", function() {
+            window.print();
+        });
+    }
+}
 }
 
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initialiseOurPin);
-} else {
-    initialiseOurPin();
+const printButton = document.getElementById("print-key");
+
+if (printButton) {
+    printButton.addEventListener("click", function() {
+        window.print();
+    });
 }
 
 
@@ -611,16 +635,19 @@ function setupAnswerKeyButton() {
 
 // PRINT ANSWER KEY
 
-const printButton = document.getElementById("print-key");
-
-if (printButton) {
-    printButton.addEventListener("click", function() {
-        window.print();
-    });
-}
 
 
 // INITIALISE ANSWER KEY FEATURES
 
-loadAnswerKey();
-setupAnswerKeyButton();
+if (document.readyState === "loading") {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initialiseOurPin
+    );
+
+} else {
+
+    initialiseOurPin();
+
+}
