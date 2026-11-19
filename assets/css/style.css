@@ -368,3 +368,162 @@ body {
         transition: none !important;
     }
 }
+
+
+/* =================================
+   OURPIN — ARTICLE READING PAGE
+================================= */
+
+.article-page {
+    padding: 35px 12% 90px;
+}
+
+.article-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    color: #999999;
+    font-size: 11px;
+    margin-bottom: 65px;
+}
+
+.article-breadcrumb a {
+    color: #777777;
+    text-decoration: none;
+}
+
+.article-breadcrumb a:hover {
+    color: #111111;
+}
+
+.article-content {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.article-header {
+    max-width: 750px;
+}
+
+.article-header h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 5vw, 65px);
+    font-weight: normal;
+    line-height: 1.15;
+    letter-spacing: -2px;
+    margin: 22px 0;
+}
+
+.article-description {
+    font-size: 17px;
+    color: #777777;
+    line-height: 1.8;
+    max-width: 650px;
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+    color: #888888;
+    font-size: 11px;
+}
+
+.article-divider {
+    height: 1px;
+    background: #dddddd;
+    margin: 45px 0;
+}
+
+.article-body {
+    max-width: 720px;
+}
+
+.article-body section {
+    margin-bottom: 45px;
+}
+
+.article-body h2 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 17px;
+}
+
+.article-body p,
+.article-body li {
+    font-size: 16px;
+    line-height: 2;
+    color: #444444;
+}
+
+.article-body ul {
+    padding-left: 22px;
+}
+
+.article-body li {
+    margin-bottom: 10px;
+}
+
+.article-sources {
+    border-top: 1px solid #dddddd;
+    padding-top: 30px;
+}
+
+.article-sources a {
+    display: block;
+    color: #555555;
+    font-size: 13px;
+    margin: 12px 0;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.article-back {
+    max-width: 720px;
+    margin: 55px auto 0;
+}
+
+.article-back a {
+    color: #333333;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.article-back a:hover {
+    text-decoration: underline;
+}
+
+/* ARTICLE MOBILE DESIGN */
+
+@media (max-width: 700px) {
+
+    .article-page {
+        padding: 25px 7% 65px;
+    }
+
+    .article-breadcrumb {
+        margin-bottom: 45px;
+    }
+
+    .article-header h1 {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+    }
+
+    .article-description {
+        font-size: 15px;
+    }
+
+    .article-body h2 {
+        font-size: 25px;
+    }
+
+    .article-body p,
+    .article-body li {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+}
