@@ -338,3 +338,145 @@ if (document.readyState === "loading") {
 } else {
     initialiseOurPin();
 }
+
+
+/* =====================================
+   OURPIN — ANSWER KEY SYSTEM
+===================================== */
+
+const answerExplanations = {
+
+    national: [
+        "The passage describes public infrastructure as essential to civic life and access to opportunities.",
+        "It explicitly explains that building new facilities is insufficient when existing infrastructure is neglected.",
+        "Accessibility, reliability and community needs are identified as important considerations."
+    ],
+
+    international: [
+        "The passage explains that many modern challenges extend beyond national borders.",
+        "Information exchange and policy coordination are two benefits of international cooperation.",
+        "Mutual trust, communication and fulfilled commitments are identified as requirements."
+    ],
+
+    economy: [
+        "The passage states that rising general prices reduce the purchasing power of money.",
+        "Changes in production costs are explicitly mentioned as a factor influencing inflation.",
+        "Inflation concerns broader changes in the general price level, not just one product."
+    ],
+
+    science: [
+        "Earth observation satellites collect information about our planet using sensors.",
+        "Different sensors record different types of information, including different parts of the electromagnetic spectrum.",
+        "Satellite observations help scientists identify geographical patterns and changes."
+    ]
+
+};
+
+
+// LOAD ANSWER KEY
+
+function loadAnswerKey() {
+
+    const container = document.getElementById("answer-key-list");
+
+    if (!container) return;
+
+    const id = new URLSearchParams(window.location.search).get("id");
+    const set = practiceSets[id];
+
+    if (!set) {
+        document.getElementById("key-title").textContent =
+            "Answer key not found.";
+
+        return;
+    }
+
+    document.getElementById("key-title").textContent =
+        "Answer Key — " + set.title;
+
+    document.getElementById("key-category").textContent =
+        set.category;
+
+    document.getElementById("key-date").textContent =
+        new Intl.DateTimeFormat("en-IN", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }).format(new Date());
+
+    container.replaceChildren();
+
+    set.questions.forEach((question, index) => {
+
+        const item = document.createElement("section");
+        item.className = "answer-key-item";
+
+        const heading = document.createElement("h3");
+        heading.textContent =
+            "Q" + (index + 1) + ". " + question.question;
+
+        const answer = document.createElement("p");
+
+        const letter = ["A", "B", "C", "D"][question.answer];
+
+        answer.textContent =
+            "Correct Answer: " + letter + ". " +
+            question.options[question.answer];
+
+        const explanation = document.createElement("p");
+        explanation.textContent =
+            "Explanation: " +
+            (answerExplanations[id]?.[index] ||
+             "Refer to the relevant passage.");
+
+        item.appendChild(heading);
+        item.appendChild(answer);
+        item.appendChild(explanation);
+
+        container.appendChild(item);
+
+    });
+
+}
+
+
+// ENABLE THE ANSWER KEY BUTTON ON PRACTICE PAGES
+
+function setupAnswerKeyButton() {
+
+    const button = document.getElementById("answer-key-button");
+
+    if (!button) return;
+
+    const id = new URLSearchParams(window.location.search).get("id");
+
+    if (!practiceSets[id]) return;
+
+    button.disabled = false;
+    button.textContent = "VIEW ANSWER KEY →";
+
+    button.addEventListener("click", function() {
+
+        window.location.href =
+            "answer-key.html?id=" + encodeURIComponent(id);
+
+    });
+
+}
+
+
+// PRINT ANSWER KEY
+
+const printButton = document.getElementById("print-key");
+
+if (printButton) {
+    printButton.addEventListener("click", function() {
+        window.print();
+    });
+}
+
+
+// INITIALISE ANSWER KEY FEATURES
+
+loadAnswerKey();
+setupAnswerKeyButton();
