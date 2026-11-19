@@ -178,6 +178,57 @@ const practiceSets = {
 };
 
 
+/* ADDA247 DEMONSTRATION PRACTICE SET */
+
+practiceSets.adda247 = {
+
+    category: "SECTION B / ADDA247",
+
+    title: "International Cooperation and Global Challenges",
+
+    description: "A demonstration comprehension exercise for the Adda247 section.",
+
+    passage: [
+        "In an increasingly interconnected world, several challenges extend beyond national boundaries. Environmental concerns, international trade, technological developments and public health issues can affect multiple countries simultaneously. Addressing such challenges often requires countries to cooperate rather than act independently.",
+
+        "International cooperation enables governments to exchange information, coordinate policies and establish common approaches. Its effectiveness, however, depends on mutual trust, communication and the willingness of participating countries to fulfil their commitments."
+    ],
+
+    questions: [
+        {
+            question: "Why do certain global challenges require international cooperation?",
+            options: [
+                "They affect only individual communities.",
+                "They can extend beyond national boundaries.",
+                "They eliminate the need for governments.",
+                "They are unrelated to other countries."
+            ],
+            answer: 1
+        },
+        {
+            question: "What does international cooperation enable?",
+            options: [
+                "Information exchange and policy coordination.",
+                "The elimination of all national policies.",
+                "The avoidance of shared responsibilities.",
+                "The removal of communication."
+            ],
+            answer: 0
+        },
+        {
+            question: "What is necessary for effective international cooperation?",
+            options: [
+                "Complete independence.",
+                "The absence of commitments.",
+                "Mutual trust and communication.",
+                "Avoiding information exchange."
+            ],
+            answer: 2
+        }
+    ]
+};
+
+
 // DISPLAY CURRENT DATE
 
 function updateDate() {
