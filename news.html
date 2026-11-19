@@ -4,148 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Read the most important daily news on OurPin.">
     <title>Daily Brief — OurPin</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-    <header class="header">
-        <a href="index.html" class="logo">OurPin<span>.</span></a>
+<header class="header">
+    <a href="index.html" class="logo">OurPin<span>.</span></a>
+    <nav class="navigation">
+        <a href="index.html">Home</a>
+        <a href="news.html">Daily News</a>
+        <a href="analysis.html">Video Analysis</a>
+    </nav>
+    <div class="header-date" id="current-date"></div>
+</header>
 
-        <nav class="navigation">
-            <a href="index.html">Home</a>
-            <a href="news.html">Daily News</a>
-            <a href="analysis.html">Video Analysis</a>
-        </nav>
+<main>
 
-        <div class="header-date" id="current-date"></div>
-    </header>
+    <section class="hero">
+        <p class="eyebrow">OURPIN / DAILY EDITION</p>
+        <h1>The Daily<br>Brief<span>.</span></h1>
+        <p class="hero-description">
+            Less noise. More information.
+            Only the developments that genuinely matter.
+        </p>
+    </section>
 
-    <main>
+    <section class="news-section">
 
-        <section class="hero">
-            <p class="eyebrow">OURPIN / DAILY EDITION</p>
-
-            <h1>The Daily<br>Brief<span>.</span></h1>
-
-            <p class="hero-description">
-                Less noise. More information.
-                Only the developments that genuinely matter.
-            </p>
-        </section>
-
-        <section class="news-section">
-
-            <div class="section-heading">
-                <div>
-                    <p class="section-number">YOUR DAILY NEWS</p>
-                    <h2>Important Stories</h2>
-                </div>
-
-                <span class="section-label">SECTION 01</span>
+        <div class="section-heading">
+            <div>
+                <p class="section-number">YOUR DAILY NEWS</p>
+                <h2>Important Stories</h2>
             </div>
+            <span class="section-label">SECTION 01</span>
+        </div>
 
-            
-<div class="news-container" id="news-container">
+        <div class="news-container">
 
-    <a class="news-card" href="article.html?id=national">
-        <span class="category">NATIONAL</span>
-        <h3>Important national developments</h3>
-        <p>
-            Carefully selected national news with
-            concise explanations and relevant context.
-        </p>
-        <span class="read-time">DAILY BRIEF →</span>
-    </a>
+            <a class="news-card" href="article.html?id=national">
+                <span class="category">NATIONAL</span>
+                <h3>Important national developments</h3>
+                <p>Carefully selected national news with concise explanations and relevant context.</p>
+                <span class="read-time">DAILY BRIEF →</span>
+            </a>
 
-    <a class="news-card" href="article.html?id=international">
-        <span class="category">INTERNATIONAL</span>
-        <h3>Important global developments</h3>
-        <p>
-            Understand major international events,
-            their background and implications.
-        </p>
-        <span class="read-time">DAILY BRIEF →</span>
-    </a>
+            <a class="news-card" href="article.html?id=international">
+                <span class="category">INTERNATIONAL</span>
+                <h3>Important global developments</h3>
+                <p>Understand major international events, their background and implications.</p>
+                <span class="read-time">DAILY BRIEF →</span>
+            </a>
 
-    <a class="news-card" href="article.html?id=economy">
-        <span class="category">ECONOMY</span>
-        <h3>Important economic developments</h3>
-        <p>
-            Major economic decisions, markets and
-            developments affecting the world.
-        </p>
-        <span class="read-time">DAILY BRIEF →</span>
-    </a>
+            <a class="news-card" href="article.html?id=economy">
+                <span class="category">ECONOMY</span>
+                <h3>Important economic developments</h3>
+                <p>Major economic decisions, markets and developments affecting the world.</p>
+                <span class="read-time">DAILY BRIEF →</span>
+            </a>
 
-    <a class="news-card" href="article.html?id=science">
-        <span class="category">SCIENCE & TECHNOLOGY</span>
-        <h3>Important scientific developments</h3>
-        <p>
-            Significant discoveries, technological
-            developments and innovations.
-        </p>
-        <span class="read-time">DAILY BRIEF →</span>
-    </a>
+            <a class="news-card" href="article.html?id=science">
+                <span class="category">SCIENCE & TECHNOLOGY</span>
+                <h3>Important scientific developments</h3>
+                <p>Significant discoveries, technological developments and innovations.</p>
+                <span class="read-time">DAILY BRIEF →</span>
+            </a>
 
-</div>
+        </div>
+    </section>
 
+</main>
 
-                <article class="news-card">
-                    <span class="category">NATIONAL</span>
-                    <h3>Important national developments</h3>
-                    <p>
-                        Carefully selected national news with
-                        concise explanations and relevant context.
-                    </p>
-                    <span class="read-time">DAILY BRIEF</span>
-                </article>
+<footer class="footer">
+    <a href="index.html" class="logo">OurPin<span>.</span></a>
+    <p>Stay informed. Think better.</p>
+    <span>© 2026 OurPin</span>
+</footer>
 
-                <article class="news-card">
-                    <span class="category">INTERNATIONAL</span>
-                    <h3>Important global developments</h3>
-                    <p>
-                        Understand major international events,
-                        their background and their implications.
-                    </p>
-                    <span class="read-time">DAILY BRIEF</span>
-                </article>
-
-                <article class="news-card">
-                    <span class="category">ECONOMY</span>
-                    <h3>Important economic developments</h3>
-                    <p>
-                        Major economic decisions, markets and
-                        developments affecting the world.
-                    </p>
-                    <span class="read-time">DAILY BRIEF</span>
-                </article>
-
-                <article class="news-card">
-                    <span class="category">SCIENCE & TECHNOLOGY</span>
-                    <h3>Important scientific developments</h3>
-                    <p>
-                        Significant discoveries, technological
-                        developments and innovations.
-                    </p>
-                    <span class="read-time">DAILY BRIEF</span>
-                </article>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <a href="index.html" class="logo">OurPin<span>.</span></a>
-        <p>Stay informed. Think better.</p>
-        <span>© 2026 OurPin</span>
-    </footer>
-
-    <script src="assets/js/app.js"></script>
-
+<script src="assets/js/app.js"></script>
 </body>
 </html>
