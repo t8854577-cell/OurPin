@@ -536,3 +536,31 @@ a.news-card {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+/* OURPIN CLICKABLE NEWS CARDS */
+
+a.news-card,
+a.news-card:visited {
+    display: block;
+    color: #111111;
+    text-decoration: none;
+}
+
+a.news-card h3 {
+    color: #111111;
+}
+
+a.news-card p {
+    color: #777777;
+}
+
+a.news-card .category,
+a.news-card .read-time {
+    color: #777777;
+}
+
+a.news-card:hover h3 {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
