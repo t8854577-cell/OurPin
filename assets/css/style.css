@@ -527,3 +527,12 @@ body {
         line-height: 1.9;
     }
 }
+
+/* CLICKABLE NEWS CARDS */
+
+a.news-card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
