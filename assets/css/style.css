@@ -899,3 +899,165 @@ a.news-card:hover h3 {
         padding: 20px;
     }
 }
+
+
+/* =====================================
+   OURPIN — FINAL ANSWER KEY DESIGN
+===================================== */
+
+.answer-page {
+    width: min(850px, calc(100% - 40px));
+    margin: 65px auto 90px;
+    padding: 0;
+}
+
+.answer-page #key-title {
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 5vw, 55px);
+    font-weight: normal;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+    margin: 22px 0;
+}
+
+.answer-page #key-category {
+    font-size: 15px;
+    color: #777777;
+    line-height: 1.7;
+}
+
+.answer-page .article-meta {
+    margin: 28px 0 35px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.answer-key-list {
+    display: grid;
+    gap: 18px;
+    margin: 35px 0;
+}
+
+.answer-key-item {
+    background: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-left: 3px solid #111111;
+    border-radius: 2px;
+    padding: 28px 32px;
+    break-inside: avoid;
+}
+
+.answer-key-item h3 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.answer-key-item p {
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.answer-key-item p:nth-of-type(1) {
+    background: #f1f1f1;
+    border-left: 2px solid #111111;
+    padding: 13px 16px;
+    color: #111111;
+    font-weight: 600;
+}
+
+.answer-key-item p:nth-of-type(2) {
+    color: #666666;
+    margin-top: 17px;
+}
+
+#print-key {
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid #111111;
+    padding: 16px 25px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+#print-key:hover {
+    background: #ffffff;
+    color: #111111;
+}
+
+.print-instruction {
+    color: #888888;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* PRINT DOCUMENT */
+
+@page {
+    size: A4;
+    margin: 18mm;
+}
+
+@media print {
+
+    body {
+        background: #ffffff !important;
+        color: #111111 !important;
+    }
+
+    .header,
+    .footer,
+    .article-back,
+    #print-key,
+    .print-instruction {
+        display: none !important;
+    }
+
+    .answer-page {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .answer-page #key-title {
+        font-size: 32px;
+    }
+
+    .answer-key-list {
+        display: block;
+    }
+
+    .answer-key-item {
+        background: #ffffff;
+        margin-bottom: 18px;
+        border: 1px solid #cccccc;
+        border-left: 3px solid #111111;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .answer-key-item p:nth-of-type(1) {
+        background: #f1f1f1 !important;
+        color: #111111 !important;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .answer-page {
+        width: 86%;
+        margin: 45px auto 65px;
+    }
+
+    .answer-key-item {
+        padding: 22px;
+    }
+
+    .answer-key-item h3 {
+        font-size: 18px;
+    }
+}
